@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{9f268996-c2eb-4da7-8426-9603a2389cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shader">
+      <UniqueIdentifier>{4a8b4ea7-3ac1-44df-a4d7-e58301b139c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shader\ShaderFiles">
+      <UniqueIdentifier>{dbe78159-9da8-4dea-b213-83975af57c56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Window">
+      <UniqueIdentifier>{62d8f992-93c4-43ca-874e-a55a3370b7a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Callbacks">
+      <UniqueIdentifier>{1ca6c3aa-6b3a-40c0-8d9e-13f13ef49810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Buffers">
+      <UniqueIdentifier>{7533d245-9fca-45a5-811d-a501a504173f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Rendering">
+      <UniqueIdentifier>{a88e95f2-6471-4ca0-873e-c3f55f0b1645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Camera">
+      <UniqueIdentifier>{95782251-93ee-46c2-b839-ddd680b29320}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window\Window.cpp">
+      <Filter>Source\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp">
+      <Filter>Source\Callbacks</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shader\Shader.cpp">
+      <Filter>Source\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Buffer\Buffer.cpp">
+      <Filter>Source\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Buffer\IndexBuffer.cpp">
+      <Filter>Source\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Buffer\VertexArray.cpp">
+      <Filter>Source\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\Renderable2D.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\QueuedRenderer2D.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera\Camera.cpp">
+      <Filter>Source\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shader\ShaderFiles\BasicShader.fragmentshader">
+      <Filter>Source\Shader\ShaderFiles</Filter>
+    </None>
+    <None Include="Source\Shader\ShaderFiles\BasicShader.vertexshader">
+      <Filter>Source\Shader\ShaderFiles</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Window\Window.h">
+      <Filter>Source\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Callbacks\WindowCallbacks.h">
+      <Filter>Source\Callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shader\Shader.h">
+      <Filter>Source\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\Buffer.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\IndexBuffer.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\VertexArray.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Renderable2D.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\BufferHeader.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\QueuedRenderer2D.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Camera\Camera.h">
+      <Filter>Source\Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
