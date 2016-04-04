@@ -18,7 +18,8 @@
     <ClCompile Include="Source\Camera\Camera.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Rendering\QueuedRenderer2D.cpp" />
-    <ClCompile Include="Source\Rendering\Renderable2D.cpp" />
+    <ClCompile Include="Source\Rendering\SimpleCube.cpp" />
+    <ClCompile Include="Source\Rendering\SimpleRenderable2D.cpp" />
     <ClCompile Include="Source\Shader\Shader.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
   </ItemGroup>
@@ -34,7 +35,8 @@
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h" />
     <ClInclude Include="Source\Camera\Camera.h" />
     <ClInclude Include="Source\Rendering\QueuedRenderer2D.h" />
-    <ClInclude Include="Source\Rendering\Renderable2D.h" />
+    <ClInclude Include="Source\Rendering\SimpleCube.h" />
+    <ClInclude Include="Source\Rendering\SimpleRenderable2D.h" />
     <ClInclude Include="Source\Shader\Shader.h" />
     <ClInclude Include="Source\Window\Window.h" />
   </ItemGroup>
@@ -72,7 +74,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\ThirdParty\GLEW\include;$(ProjectDir)\ThirdParty\GLFW\include;$(ProjectDir)\ThirdParty\FancyLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\ThirdParty\GLEW\include;$(ProjectDir)\ThirdParty\GLFW\include;$(ProjectDir)\ThirdParty\FancyLib\include;$(ProjectDir)\ThirdParty\GLM\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

@@ -8,9 +8,9 @@ namespace CG
 	struct Camera
 	{
 	private:
-		FancyMath::Vector3f location;
-		FancyMath::Vector3f lookAt;
-		FancyMath::Vector3f upVector;
+		FancyMath::Vector3f eye; // location origin of camera
+		FancyMath::Vector3f center; // where the eye is looking at
+		FancyMath::Vector3f upVector; // which way is "Up"
 	
 
 	public:

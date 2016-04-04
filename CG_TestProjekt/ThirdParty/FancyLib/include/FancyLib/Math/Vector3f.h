@@ -3,6 +3,10 @@
 
 namespace FancyMath
 {
+	struct Vector3f;
+
+
+
 	struct FANCYMATH_API Vector3f
 	{
 	public:
@@ -16,8 +20,9 @@ namespace FancyMath
 		Vector3f& Subtract(const Vector3f& other);
 		Vector3f& Multiply(const float factor);
 
+		static Vector3f& Normalize(Vector3f& inVector);
 		static float DotProduct(const Vector3f& vector1, const Vector3f& vector2);
-		static Vector3f CrossProduct(const Vector3f& vector1, const Vector3f& vector2);
+		static  Vector3f CrossProduct(const Vector3f& vector1, const Vector3f& vector2);
 
 		friend FANCYMATH_API Vector3f operator+(Vector3f left, const Vector3f& right);
 		friend FANCYMATH_API Vector3f operator-(Vector3f left, const Vector3f& right);
@@ -33,8 +38,6 @@ namespace FancyMath
 
 		float GetLength() const;
 
-		void Normalize();
-	};
 
-	
+	};
 }

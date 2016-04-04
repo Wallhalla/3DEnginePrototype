@@ -6,7 +6,7 @@ using namespace CG;
 using namespace FancyMath;
 
 Camera::Camera(FancyMath::Vector3f inCameraLocation, FancyMath::Vector3f inLookAtLocation, FancyMath::Vector3f inUpVector)
-	:location(inCameraLocation), lookAt(inLookAtLocation), upVector(inUpVector)
+	:eye(inCameraLocation), center(inLookAtLocation), upVector(inUpVector)
 {
 
 }
@@ -18,45 +18,48 @@ Camera::~Camera()
 
 Matrix4 Camera::GetCameraMatrix() const
 {
-	Matrix4 result(1);
+	// Kameramatrix => M = R * T		
 
-	/*zaxis = normal(cameraTarget - cameraPosition)
-		xaxis = normal(cross(cameraUpVector, zaxis))
-		yaxis = cross(zaxis, xaxis)
+	/**
+	 * Berechnung des Kamera KOS -> u,v,n Komponenten
+	 */
+	// Berechnung der "N" Komponente aka Blickrichtung entlang der Z-Achse
+	// N = -(Center - Eye) N zeigt entgegen der Blickrichtung
+	Vector3f N = -1*Vector3f::Normalize(center - eye);	
 
-		xaxis.x           yaxis.x           zaxis.x          0
-		xaxis.y           yaxis.y           zaxis.y          0
-		xaxis.z           yaxis.z           zaxis.z          0
-		- dot(xaxis, cameraPosition) - dot(yaxis, cameraPosition) - dot(zaxis, cameraPosition)  1*/
+	// Berechnung der "U" Komponente, aka Vektor der Senkrecht zur Ebene zwischen n und dem upVector steht
+	// U = N x Up
+	Vector3f U = Vector3f::Normalize(Vector3f::CrossProduct(N, upVector));	
 
-	Vector3f normZaxis = Vector3f(lookAt - location);
-	normZaxis.Normalize();
+	// Berechnung der "V" Komponente, aka Vektor der Senkrecht zu U und N steht
+	// U = N x Up
+	Vector3f V = Vector3f::CrossProduct(N, U);
 
-	Vector3f normXaxis = Vector3f::CrossProduct(upVector, normZaxis);
-	normXaxis.Normalize();
+	// Translationsmatrix (T) bestimmt Kamera Position (Pos = eye Vector)
+	Matrix4 Translation(1);
 
-	Vector3f normYaxis = Vector3f::CrossProduct(normZaxis, normXaxis); // already normalized no need to call Normalize afterwards
+	Translation.Elements[12] = -eye.X;
+	Translation.Elements[13] = -eye.Y;
+	Translation.Elements[14] = -eye.Z;
 
-	// First collumn
-	result.Collumns[0].X = normXaxis.X; 
-	result.Collumns[0].Y = normXaxis.Y; 
-	result.Collumns[0].Z = normXaxis.Z; 
-	result.Collumns[0].W = Vector3f::DotProduct(normXaxis, location) * -1;
-	// Second collumn
-	result.Collumns[1].X = normYaxis.X; 
-	result.Collumns[1].Y = normYaxis.Y; 
-	result.Collumns[1].Z = normYaxis.Z; 
-	result.Collumns[1].W = Vector3f::DotProduct(normYaxis, location) * -1;
-	// Third collumn
-	result.Collumns[2].X = normZaxis.X;
-	result.Collumns[2].Y = normZaxis.Y;
-	result.Collumns[2].Z = normZaxis.Z;
-	result.Collumns[2].W = Vector3f::DotProduct(normZaxis, location) * -1;
-	// Fourth collumn
-	result.Collumns[3].X = 0;
-	result.Collumns[3].Y = 0;
-	result.Collumns[3].Z = 0;
-	result.Collumns[3].W = 1;
+	Matrix4 Rotation(1);
+	// 1. Spalte
+	Rotation.Elements[0] = U.X;
+	Rotation.Elements[1] = V.X;
+	Rotation.Elements[2] = N.X;
+	Rotation.Elements[3] = 0;
 
-	return result;
+	// 2. Spalte
+	Rotation.Elements[4] = U.Y;
+	Rotation.Elements[5] = V.Y;
+	Rotation.Elements[6] = N.Y;
+	Rotation.Elements[7] = 0;
+
+	// 3. Spalte
+	Rotation.Elements[8] = U.Z;
+	Rotation.Elements[9] = V.Z;
+	Rotation.Elements[10] = N.Z;
+	Rotation.Elements[11] = 0;
+		
+	return Rotation * Translation;
 }

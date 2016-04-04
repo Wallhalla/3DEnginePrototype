@@ -19,6 +19,11 @@ namespace CG
 		void Enable() const;
 		void Disable() const;
 
+		GLuint GetProgramID() const
+		{
+			return shaderProgramID;
+		}
+
 	public:		
 		void SetUniform_Vector2f(const GLchar* uniformName, const FancyMath::Vector2f& inVector);
 		void SetUniform_Vector3f(const GLchar* uniformName, const FancyMath::Vector3f& inVector);

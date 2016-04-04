@@ -72,7 +72,8 @@ void Window::SetWindowCallbacks()
 void Window::Update()
 {
 	glfwPollEvents();
-		glfwSwapBuffers(windowInstance);
+	
+	glfwSwapBuffers(windowInstance);
 }
 
 void Window::Clear() const

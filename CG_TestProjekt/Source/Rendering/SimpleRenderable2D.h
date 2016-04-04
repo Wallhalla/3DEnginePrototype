@@ -14,12 +14,12 @@ namespace CG
 		FancyMath::Vector4f Color;
 	};
 
-	class Renderable2D
+	class SimpleRenderable2D
 	{
 
 	public:
-		Renderable2D(FancyMath::Vector3f inLocation, FancyMath::Vector2f inSize);
-		virtual ~Renderable2D();
+		SimpleRenderable2D(FancyMath::Vector3f inLocation, FancyMath::Vector2f inSize);
+		virtual ~SimpleRenderable2D();
 
 	public:
 		FancyMath::Vector3f position;

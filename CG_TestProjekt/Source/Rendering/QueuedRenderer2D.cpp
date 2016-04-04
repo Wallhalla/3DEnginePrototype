@@ -13,14 +13,14 @@ QueuedRenderer2D::~QueuedRenderer2D()
 
 
 
-void QueuedRenderer2D::Submit(const Renderable2D* renderable)
+void QueuedRenderer2D::Submit(const SimpleRenderable2D* renderable)
 {
 	renderables.push_back(renderable);
 }
 
 void QueuedRenderer2D::Flush()
 {
-	for (const Renderable2D* renderable : renderables)
+	for (const SimpleRenderable2D* renderable : renderables)
 	{
 		renderable->Draw();
 	}

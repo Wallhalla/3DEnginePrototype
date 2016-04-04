@@ -48,14 +48,17 @@
     <ClCompile Include="Source\Buffer\VertexArray.cpp">
       <Filter>Source\Buffers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Rendering\Renderable2D.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Rendering\QueuedRenderer2D.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="Source\Camera\Camera.cpp">
       <Filter>Source\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\SimpleRenderable2D.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\SimpleCube.cpp">
+      <Filter>Source\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +88,6 @@
     <ClInclude Include="Source\Buffer\VertexArray.h">
       <Filter>Source\Buffers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Rendering\Renderable2D.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Buffer\BufferHeader.h">
       <Filter>Source\Buffers</Filter>
     </ClInclude>
@@ -96,6 +96,12 @@
     </ClInclude>
     <ClInclude Include="Source\Camera\Camera.h">
       <Filter>Source\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SimpleRenderable2D.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SimpleCube.h">
+      <Filter>Source\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

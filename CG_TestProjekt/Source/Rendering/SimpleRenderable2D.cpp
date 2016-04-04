@@ -1,9 +1,9 @@
-#include "Renderable2D.h"
+#include "SimpleRenderable2D.h"
 
 using namespace CG;
 using namespace FancyMath;
 
-Renderable2D::Renderable2D(FancyMath::Vector3f inLocation, FancyMath::Vector2f inSize)
+SimpleRenderable2D::SimpleRenderable2D(FancyMath::Vector3f inLocation, FancyMath::Vector2f inSize)
 	:position(inLocation), size(inSize)
 {
 
@@ -29,13 +29,13 @@ Renderable2D::Renderable2D(FancyMath::Vector3f inLocation, FancyMath::Vector2f i
 	ibo = new IndexBuffer(indices, 6);
 }
 
-Renderable2D::~Renderable2D()
+SimpleRenderable2D::~SimpleRenderable2D()
 {
 	delete vao;
 	delete ibo;
 }
 
-void Renderable2D::Draw() const
+void SimpleRenderable2D::Draw() const
 {
 	vao->Bind();
 	ibo->Bind();
@@ -46,13 +46,12 @@ void Renderable2D::Draw() const
 	vao->Unbind();
 }
 
-Matrix4 Renderable2D::GetModelView() const
+Matrix4 SimpleRenderable2D::GetModelView() const
 {
 	Matrix4 result = IdentityMatrix();
 
 	result = result * Translate(position);
 
 	return result;
-
 
 }
