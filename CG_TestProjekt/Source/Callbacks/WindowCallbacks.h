@@ -4,5 +4,8 @@
 
 namespace CG
 {
-	void OnWindowResize(GLFWwindow* resizedWindow, GLsizei newWidth, GLsizei newHeight);
+	void OnWindowResize(
+		GLFWwindow* resizedWindow, 
+		GLsizei newWidth, 
+		GLsizei newHeight);
 };

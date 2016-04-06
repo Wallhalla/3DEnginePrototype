@@ -17,6 +17,7 @@ namespace CG
 	private:
 		bool CreateWindowInstance(const char* inTitle, GLsizei inWidth, GLsizei inHeight);
 		bool InitGLEW();
+
 		void SetWindowCallbacks();
 	public:
 		// Updates the renderscene of the windowinstance

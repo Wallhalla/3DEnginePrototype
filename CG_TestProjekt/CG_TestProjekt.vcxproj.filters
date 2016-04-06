@@ -60,6 +60,9 @@
     <ClCompile Include="Source\Rendering\SimpleCube.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleTriangle.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shader\ShaderFiles\BasicShader.fragmentshader">
@@ -101,6 +104,9 @@
       <Filter>Source\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Source\Rendering\SimpleCube.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTriangle.h">
       <Filter>Source\Rendering</Filter>
     </ClInclude>
   </ItemGroup>

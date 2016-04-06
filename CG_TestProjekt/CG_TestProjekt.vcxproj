@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SimpleTriangle.cpp" />
     <ClCompile Include="Source\Buffer\Buffer.cpp" />
     <ClCompile Include="Source\Buffer\IndexBuffer.cpp" />
     <ClCompile Include="Source\Buffer\VertexArray.cpp" />
@@ -28,6 +29,7 @@
     <None Include="Source\Shader\ShaderFiles\BasicShader.vertexshader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SimpleTriangle.h" />
     <ClInclude Include="Source\Buffer\Buffer.h" />
     <ClInclude Include="Source\Buffer\BufferHeader.h" />
     <ClInclude Include="Source\Buffer\IndexBuffer.h" />
