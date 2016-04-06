@@ -7,9 +7,6 @@
     <Filter Include="Source\Shader">
       <UniqueIdentifier>{4a8b4ea7-3ac1-44df-a4d7-e58301b139c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Shader\ShaderFiles">
-      <UniqueIdentifier>{dbe78159-9da8-4dea-b213-83975af57c56}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Window">
       <UniqueIdentifier>{62d8f992-93c4-43ca-874e-a55a3370b7a4}</UniqueIdentifier>
     </Filter>
@@ -36,41 +33,9 @@
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp">
       <Filter>Source\Callbacks</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Shader\Shader.cpp">
-      <Filter>Source\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Buffer\Buffer.cpp">
-      <Filter>Source\Buffers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Buffer\IndexBuffer.cpp">
-      <Filter>Source\Buffers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Buffer\VertexArray.cpp">
-      <Filter>Source\Buffers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\QueuedRenderer2D.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Camera\Camera.cpp">
-      <Filter>Source\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\SimpleRenderable2D.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\SimpleCube.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="SimpleTriangle.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Source\Shader\ShaderFiles\BasicShader.fragmentshader">
-      <Filter>Source\Shader\ShaderFiles</Filter>
-    </None>
-    <None Include="Source\Shader\ShaderFiles\BasicShader.vertexshader">
-      <Filter>Source\Shader\ShaderFiles</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window\Window.h">
@@ -78,33 +43,6 @@
     </ClInclude>
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h">
       <Filter>Source\Callbacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shader\Shader.h">
-      <Filter>Source\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Buffer\Buffer.h">
-      <Filter>Source\Buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Buffer\IndexBuffer.h">
-      <Filter>Source\Buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Buffer\VertexArray.h">
-      <Filter>Source\Buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Buffer\BufferHeader.h">
-      <Filter>Source\Buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\QueuedRenderer2D.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Camera\Camera.h">
-      <Filter>Source\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\SimpleRenderable2D.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\SimpleCube.h">
-      <Filter>Source\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="SimpleTriangle.h">
       <Filter>Source\Rendering</Filter>
