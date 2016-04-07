@@ -7,18 +7,7 @@ using namespace CG;
 #include "FancyLib/Math/Vector3f.h"
 using namespace FancyMath;
 
-#include "Rendering/SimpleRenderable2D.h"
-#include "Rendering/SimpleCube.h"
-
-#include "Camera/Camera.h"
-
-#include "glm.hpp"
-#include "gtc/matrix_transform.hpp"
-
-
-#include "../SimpleTriangle.h"
-
-#include "FancyLib/FancyUtils.h"
+#include "SimpleTriangle.h"
 
 int main()
 {

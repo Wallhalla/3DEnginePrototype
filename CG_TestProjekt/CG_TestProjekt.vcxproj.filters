@@ -33,7 +33,7 @@
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp">
       <Filter>Source\Callbacks</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleTriangle.cpp">
+    <ClCompile Include="Source\SimpleTriangle.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h">
       <Filter>Source\Callbacks</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleTriangle.h">
+    <ClInclude Include="Source\SimpleTriangle.h">
       <Filter>Source\Rendering</Filter>
     </ClInclude>
   </ItemGroup>

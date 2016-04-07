@@ -27,7 +27,7 @@ SimpleTriangle::SimpleTriangle()
 		GL_FLOAT,           // type
 		GL_FALSE,           // normalized?
 		0,                  // stride
-		0           // array buffer offset
+		0					// array buffer offset
 		);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
