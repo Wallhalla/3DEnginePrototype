@@ -1,12 +1,6 @@
 #include "Window/Window.h"
 using namespace CG;
 
-#include "Shader/Shader.h"
-
-#include "FancyLib/FancyMath.h"
-#include "FancyLib/Math/Vector3f.h"
-using namespace FancyMath;
-
 #include "SimpleTriangle.h"
 
 int main()
