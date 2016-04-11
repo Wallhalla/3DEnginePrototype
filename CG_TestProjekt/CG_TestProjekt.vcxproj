@@ -13,13 +13,19 @@
   <ItemGroup>
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Shader\ShaderProgam.cpp" />
     <ClCompile Include="Source\SimpleTriangle.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h" />
+    <ClInclude Include="Source\Shader\ShaderProgram.h" />
     <ClInclude Include="Source\SimpleTriangle.h" />
     <ClInclude Include="Source\Window\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shader\ShaderFiles\BasicShader.fragmentshader" />
+    <None Include="Source\Shader\ShaderFiles\BasicShader.vertexshader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}</ProjectGuid>

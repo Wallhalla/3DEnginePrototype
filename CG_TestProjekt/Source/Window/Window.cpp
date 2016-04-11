@@ -13,6 +13,9 @@ Window::Window(const char* inTitle, GLsizei inWidth, GLsizei inHeight)
 		std::cout << "Failed to create window!" << std::endl;
 	}
 
+	int width, height;
+	glfwGetFramebufferSize(windowInstance, &width, &height);
+
 	if (!InitGLEW())
 	{
 		std::cout << "Failed to initialize GLEW!" << std::endl;

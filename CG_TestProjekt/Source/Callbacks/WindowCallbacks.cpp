@@ -6,5 +6,6 @@ void CG::OnWindowResize(
 	GLsizei newWidth, 
 	GLsizei newHeight)
 {
+
 	glViewport(0, 0, newWidth, newHeight);
 }

@@ -22,6 +22,9 @@
     <Filter Include="Source\Camera">
       <UniqueIdentifier>{95782251-93ee-46c2-b839-ddd680b29320}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Shader\ShaderFiles">
+      <UniqueIdentifier>{122f05bb-f98a-4622-9798-0def6f797fb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Source\SimpleTriangle.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Shader\ShaderProgam.cpp">
+      <Filter>Source\Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window\Window.h">
@@ -47,5 +53,16 @@
     <ClInclude Include="Source\SimpleTriangle.h">
       <Filter>Source\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Shader\ShaderProgram.h">
+      <Filter>Source\Shader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shader\ShaderFiles\BasicShader.fragmentshader">
+      <Filter>Source\Shader\ShaderFiles</Filter>
+    </None>
+    <None Include="Source\Shader\ShaderFiles\BasicShader.vertexshader">
+      <Filter>Source\Shader\ShaderFiles</Filter>
+    </None>
   </ItemGroup>
 </Project>
