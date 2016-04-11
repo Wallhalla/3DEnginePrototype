@@ -13,12 +13,16 @@
   <ItemGroup>
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Renderables\Circle2D.cpp" />
+    <ClCompile Include="Source\Renderables\Cube.cpp" />
     <ClCompile Include="Source\Shader\ShaderProgam.cpp" />
     <ClCompile Include="Source\SimpleTriangle.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h" />
+    <ClInclude Include="Source\Renderables\Circle2D.h" />
+    <ClInclude Include="Source\Renderables\Cube.h" />
     <ClInclude Include="Source\Shader\ShaderProgram.h" />
     <ClInclude Include="Source\SimpleTriangle.h" />
     <ClInclude Include="Source\Window\Window.h" />
