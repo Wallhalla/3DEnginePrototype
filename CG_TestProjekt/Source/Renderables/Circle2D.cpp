@@ -34,7 +34,7 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertArray) * (numTriangles+2) * 3 , vertArray, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * (numTriangles+2) * 3 , vertArray, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(
