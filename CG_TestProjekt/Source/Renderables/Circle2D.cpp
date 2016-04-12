@@ -16,11 +16,11 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 	vertices.push_back(position.Y);
 	vertices.push_back(position.Z);
 		
-	for (int i = 0; i <= numTriangles; i++)
+	for (unsigned int i = 0; i <= numTriangles; i++)
 	{
 		Vector3f vec(
-			position.X + (radius * cos(i * 2 * PI / numTriangles)),
-			position.Y + (radius * sin(i * 2 * PI / numTriangles)),
+			position.X + (radius * (float)cos(i * 2 * PI / numTriangles)),
+			position.Y + (radius * (float)sin(i * 2 * PI / numTriangles)),
 			0);	
 
 		vertices.push_back(vec.X);

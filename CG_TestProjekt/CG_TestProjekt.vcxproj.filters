@@ -48,6 +48,9 @@
     <ClCompile Include="Source\Renderables\Cube.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Buffer\Buffer.cpp">
+      <Filter>Source\Buffers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window\Window.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Source\Renderables\Cube.h">
       <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\Buffer.h">
+      <Filter>Source\Buffers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

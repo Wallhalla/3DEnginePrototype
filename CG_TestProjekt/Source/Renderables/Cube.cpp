@@ -12,7 +12,7 @@ Cube::Cube()
 		1, 1, 0,
 		0, 1, 0,
 		0, 0, 0,
-		// Back Face
+		//// Back Face
 		0, 0, -1,
 		1, 0, -1,
 		1, 1, -1,
@@ -49,21 +49,27 @@ Cube::Cube()
 		1, 0, 0
 	};
 
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	// Store number of vertices
+	numVertices = sizeof(vertices) / sizeof(GLfloat);
 
+	// Create GPU Buffer
+	buffer = new Buffer(vertices, sizeof(vertices));
+	
+	// Make it active
+	buffer->Enable();
+
+	// Bind it to VertexShader Location 0
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(
 		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-		3,                  // size
+		3,                  // size (how many indices define one component) 3 = Vector3
 		GL_FLOAT,           // type
 		GL_FALSE,           // normalized?
 		0,                  // stride
 		0					// array buffer offset
 		);
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	buffer->Disable();
 }
 
 Cube::~Cube()
@@ -73,10 +79,10 @@ Cube::~Cube()
 
 void Cube::Draw()
 {
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	buffer->Enable();
 
 	// Malen
-	glDrawArrays(GL_TRIANGLES, 0, 12);
+	glDrawArrays(GL_TRIANGLES, 0, numVertices);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	buffer->Disable();
 }
