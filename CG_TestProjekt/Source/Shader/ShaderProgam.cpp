@@ -7,79 +7,125 @@
 
 ShaderProgram::ShaderProgram(const char* vertexShaderFilePath, const char* fragmentShaderFilePath)
 {
-	shaderProgramID = glCreateProgram();
-
 	Init(vertexShaderFilePath, fragmentShaderFilePath);
+}
+
+ShaderProgram::~ShaderProgram()
+{
+	glDeleteProgram(shaderProgramID);
 }
 
 void ShaderProgram::Init(const char* vertexShaderFilePath, const char* fragmentShaderFilePath)
 {
-	GLuint vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
+	GLuint vertexShaderID = 0;
+	
+	if (CreateShader(GL_VERTEX_SHADER, vertexShaderFilePath, vertexShaderID) != GL_NO_ERROR)
+	{
+		std::cout << "Could not compile VertexShader - abort!" << std::endl;
+		return;
+	}
 
-	std::string vertexShaderSourceString = FancyUtils::FancyFileManager::ReadFromFile(vertexShaderFilePath);
-	const char* vertexShaderSource = vertexShaderSourceString.c_str();	
+	GLuint fragmentShaderID = 0;
 
-	glShaderSource(vertexShaderID, 1, &vertexShaderSource, 0);
-	glCompileShader(vertexShaderID);
+	if (CreateShader(GL_FRAGMENT_SHADER, fragmentShaderFilePath, fragmentShaderID) != GL_NO_ERROR)
+	{
+		std::cout << "Could not compile FragmentShader - abort!" << std::endl;
+		return;
+	}
 
-	CheckShaderAnyErrors(vertexShaderID);
+	GLuint shaders[] = { vertexShaderID, fragmentShaderID };
+	CreateProgram(shaders);
+}
 
-	std::string fragmentShaderSourceString = FancyUtils::FancyFileManager::ReadFromFile(fragmentShaderFilePath);
-	const char* fragmentShaderSource = fragmentShaderSourceString.c_str();
+GLint ShaderProgram::CreateShader(GLenum shaderType, const char* shaderFilePath, GLuint& outID)
+{
+	outID = glCreateShader(shaderType);
 
-	GLuint fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShaderID, 1, &fragmentShaderSource, 0);
-	glCompileShader(fragmentShaderID);
+	std::string shaderSourceString = FancyUtils::FancyFileManager::ReadFromFile(shaderFilePath);
+	const char* shaderSource = shaderSourceString.c_str();
 
-	CheckShaderAnyErrors(fragmentShaderID);
+	glShaderSource(outID, 1, &shaderSource, 0);
+	glCompileShader(outID);
 
-	glAttachShader(shaderProgramID, vertexShaderID);
-	glAttachShader(shaderProgramID, fragmentShaderID);
+	if (CheckShaderAnyErrors(outID))
+	{
+		outID = 0;
+		return true;
+	}
+
+	return GL_NO_ERROR;
+}
+
+void ShaderProgram::CreateProgram(GLuint shaders[])
+{
+	shaderProgramID = glCreateProgram();
+
+	for (int i = 0; i < sizeof(shaders); i++)
+	{
+		glAttachShader(shaderProgramID, shaders[i]);
+	}	
 
 	glLinkProgram(shaderProgramID);
 
 	glValidateProgram(shaderProgramID);
 
-	CheckProgramAnyError();
-
-	glDeleteShader(vertexShaderID);
-	glDeleteShader(fragmentShaderID);
-
-	
-}
-
-void ShaderProgram::CheckProgramAnyError()
-{
-	GLint validProgram;
-
-	GLchar errorData[1024] = { 0 };
-
-	glGetProgramiv(shaderProgramID, GL_VALIDATE_STATUS, &validProgram);
-
-	if (validProgram == GL_FALSE)
+	if(CheckProgramAnyError())
 	{
-		glGetProgramInfoLog(shaderProgramID, sizeof(errorData), NULL, errorData);
-		std::cout << errorData << std::endl;
 		glDeleteProgram(shaderProgramID);
 	}
+
+	for (int i = 0; i < sizeof(shaders); i++)
+	{
+		glDeleteShader(shaders[i]);
+	}	
 }
 
-void ShaderProgram::CheckShaderAnyErrors(GLuint shaderID)
-{	
-	GLint success = 0;
-	glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
-	
+bool ShaderProgram::CheckShaderAnyErrors(GLuint shaderID)
+{
+	GLint validShader = 0;
+	glGetShaderiv(shaderID, GL_COMPILE_STATUS, &validShader);
+
 	GLint logSize = 0;
 	glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &logSize);
-
-	GLchar errorLog[512] = { 0 };
-	glGetShaderInfoLog(shaderID, logSize, &logSize, errorLog);
-
-	if (success == GL_FALSE)
+	
+	if (validShader == GL_FALSE)
 	{
-		std::cout << errorLog << std::endl;
+		std::vector<GLchar> errorLog(logSize);
+		glGetShaderInfoLog(shaderID, logSize, &logSize, &errorLog[0]);
+
+		for (auto i = errorLog.begin(); i != errorLog.end(); ++i)
+		{
+			std::cout << *i;
+		}
+		std::cout << std::endl;
 		glDeleteShader(shaderID);
+		return true;
 	}
+
+	return false;
+}
+
+bool ShaderProgram::CheckProgramAnyError()
+{
+	GLint validProgram = 0;
+	glGetProgramiv(shaderProgramID, GL_VALIDATE_STATUS, &validProgram);
+
+	GLint logSize = 0;
+	glGetProgramiv(shaderProgramID, GL_INFO_LOG_LENGTH, &logSize);
+		
+	if (validProgram == GL_FALSE)
+	{
+		std::vector<GLchar> errorLog(logSize);
+		glGetProgramInfoLog(shaderProgramID, errorLog.size(), NULL, &errorLog[0]);
+		for (auto i = errorLog.begin(); i != errorLog.end(); ++i)
+		{
+			std::cout << *i;
+		}
+		std::cout << std::endl;		
+		return true;
+	}
+
+	return false;
 }
 
 void ShaderProgram::Enable()
