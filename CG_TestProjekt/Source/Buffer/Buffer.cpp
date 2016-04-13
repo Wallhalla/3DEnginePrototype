@@ -4,7 +4,7 @@
 
 Buffer::Buffer(
 	GLfloat* inBufferData,
-	GLfloat inBufferElementsSize,
+	GLsizeiptr inBufferElementsSize,
 	GLenum inBufferType,
 	GLenum inMemoryMode)
 	: bufferType(inBufferType)
@@ -14,6 +14,11 @@ Buffer::Buffer(
 	glBufferData(bufferType, inBufferElementsSize, inBufferData, inMemoryMode);
 
 	glBindBuffer(bufferType, 0);
+}
+
+Buffer::~Buffer()
+{
+	glDeleteBuffers(1, &vboID);
 }
 
 void Buffer::Enable()

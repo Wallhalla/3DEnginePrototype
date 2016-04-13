@@ -50,7 +50,7 @@ Cube::Cube()
 	};
 
 	// Store number of vertices
-	numVertices = sizeof(vertices) / sizeof(GLfloat);
+	numVertices = sizeof(vertices) / sizeof(vertices[0]);
 
 	// Create GPU Buffer
 	buffer = new Buffer(vertices, sizeof(vertices));
@@ -74,7 +74,7 @@ Cube::Cube()
 
 Cube::~Cube()
 {
-
+	delete buffer;
 }
 
 void Cube::Draw()

@@ -11,7 +11,7 @@ private:
 public:
 	/*
 	 * @param1: array of buffer elements
-	 * @param2: size of array
+	 * @param2: size of array in BYTES! not in Elements
 	 * 
 	 * @param3 (optional): the type of this buffer, default is GL_ARRAY_BUFFER
 	 *
@@ -23,9 +23,11 @@ public:
 	 */
 	Buffer(
 		GLfloat* inBufferData, 
-		GLfloat inBufferElementsSize, 
+		GLsizeiptr inBufferElementsSize,
 		GLenum inBufferType = GL_ARRAY_BUFFER, 
 		GLenum inMemoryMode = GL_STATIC_DRAW);
+
+	~Buffer();
 
 	/* Enable this Buffer and Type to the current used on the GPU */
 	void Enable();

@@ -9,7 +9,6 @@ using namespace FancyMath;
 
 Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numTriangles)
 {
-
 	std::vector<GLfloat> vertices;
 
 	vertices.push_back(position.X);
@@ -21,20 +20,19 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 		Vector3f vec(
 			position.X + (radius * (float)cos(i * 2 * PI / numTriangles)),
 			position.Y + (radius * (float)sin(i * 2 * PI / numTriangles)),
-			0);	
+			position.Z);	
 
 		vertices.push_back(vec.X);
 		vertices.push_back(vec.Y);
 		vertices.push_back(vec.Z);
 	}	
+	numVertices = vertices.size();
 
 	GLfloat* vertArray = &vertices[0];
+	
+	buffer = new Buffer(vertArray, sizeof(GLfloat) * vertices.size());
 
-	glGenBuffers(1, &vbo);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * (numTriangles+2) * 3 , vertArray, GL_STATIC_DRAW);
+	buffer->Enable();
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(
@@ -47,22 +45,20 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 		);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-
-	numVertices = vertices.size() + 1;
+	
 }
 
 Circle2D::~Circle2D()
 {
-	
+	delete buffer;
 }
 
 void Circle2D::Draw()
 {
-	glBindBuffer(GL_ARRAY_BUFFER,vbo);
+	buffer->Enable();
 
 	// Malen
 	glDrawArrays(GL_TRIANGLE_FAN, 0, numVertices);
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	buffer->Disable();
 }

@@ -2,11 +2,13 @@
 
 #include "GL/glew.h"
 
+#include "../Buffer/Buffer.h"
+
 class Circle2D
 {
 private:
-	GLuint vbo;
-
+	//GLuint vbo;
+	Buffer* buffer;
 	GLuint numVertices;
 
 public:
