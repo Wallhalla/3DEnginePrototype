@@ -33,6 +33,4 @@ public:
 	void Enable();
 	/* Disable this Buffer to free the type on GPU */
 	void Disable();
-
-
 };

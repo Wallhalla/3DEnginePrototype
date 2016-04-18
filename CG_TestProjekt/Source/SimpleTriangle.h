@@ -1,9 +1,10 @@
 #include "GL/glew.h"
+#include "Buffer/Buffer.h"
 
 class SimpleTriangle
 {
 private:
-	GLuint vbo;
+	Buffer* buffer;
 
 public:
 	SimpleTriangle();

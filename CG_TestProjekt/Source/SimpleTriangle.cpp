@@ -7,18 +7,12 @@ SimpleTriangle::SimpleTriangle()
 	{
 		-1,-1,0,
 		1,-1,0,
-		0,1,0,
-		/*0,-1,0,
-		1,-1,0,
-		0.5,1,0*/
-
+		0,1,0
 	};
 
-	glGenBuffers(1, &vbo);
-	
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	buffer = new Buffer(vertices, sizeof(vertices));
+
+	buffer->Enable();
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(
@@ -30,19 +24,19 @@ SimpleTriangle::SimpleTriangle()
 		0					// array buffer offset
 		);
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	buffer->Disable();
 }
 
 SimpleTriangle::~SimpleTriangle()
 {
-	glDeleteBuffers(1, &vbo);
+	delete buffer;
 }
 
 void SimpleTriangle::Draw()
 {
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);	
+	buffer->Enable();
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	buffer->Disable();
 }
