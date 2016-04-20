@@ -20,23 +20,17 @@ int main()
 		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
 		"Source/Shader/ShaderFiles/BasicShader.fragmentShader");
 	shader.Enable();
-	/*SimpleTriangle triangle = SimpleTriangle();
+	SimpleTriangle triangle = SimpleTriangle();
 
-	Circle2D circle = Circle2D(1, Vector3f(0, 0, 0), 20);*/
+	Circle2D circle = Circle2D(1, Vector3f(0, 0, 0), 20);
 
-	//Cube cube;
+	Cube cube;
 	
 	while (!window.WasWindowClosed())
 	{
 		window.Clear();
 		
-		//circle.Draw();
-
-		glBegin(GL_LINE_STRIP);
-		glVertex2d(-1, -1);
-		glVertex2d(0, 0);
-		glVertex2d(0, 1);
-		glEnd();
+		circle.Draw();		
 
 		window.Update();
 	}
