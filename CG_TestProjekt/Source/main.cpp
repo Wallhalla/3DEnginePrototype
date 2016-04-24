@@ -20,12 +20,10 @@ int main()
 {
 	Window window("Einfuehrung Computergrafik", WINDOWSIZE_Y, WINDOWSIZE_Y);	
 	
-	
-	float aspectRatio = (float)WINDOWSIZE_X / WINDOWSIZE_Y;
 
 	Matrix4 ortho = FancyMath::OrthographicMatrix(0, 10, 0, 10, 0.1f, 10);
 
-	Matrix4 translation = Translate(Vector3f(2, 5, 0));
+	Matrix4 translation = Translate(Vector3f(0,0, 0));
 		
 	ShaderProgram shader = ShaderProgram(
 		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
@@ -38,19 +36,19 @@ int main()
 		GL_FALSE, 
 		ortho.Elements);
 
-	glUniformMatrix4fv(
+	/*glUniformMatrix4fv(
 		glGetUniformLocation(shader.shaderProgramID, "modelMatrix"),
 		1,
 		GL_FALSE, 
-		translation.Elements);
+		translation.Elements);*/
 
-	Cube cube;
+	Circle2D circle = Circle2D(1, Vector3f(2.5f, 7.5f, -1.0f), 20);
 	
 	while (!window.WasWindowClosed())
 	{
 		window.Clear();
 		
-		cube.Draw();
+		circle.Draw();
 
 		window.Update();
 	}

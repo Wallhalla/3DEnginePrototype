@@ -15,7 +15,7 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 	vertices.push_back(position.Y);
 	vertices.push_back(position.Z);	
 		
-	for (unsigned int i = 0; i <= 1; ++i)
+	for (unsigned int i = 0; i <= numTriangles; i++)
 	{
 		Vector3f vec(
 			position.X + (radius * (float)cos(i * 2 * PI / numTriangles)),
@@ -27,7 +27,7 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 		vertices.push_back(vec.Z);
 	}	
 
-	numVertices = vertices.size();
+	numVertices = vertices.size() / 3;
 
 	GLfloat* vertArray = &vertices[0];
 
