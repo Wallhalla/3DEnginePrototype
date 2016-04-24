@@ -4,7 +4,7 @@
 
 class ShaderProgram
 {
-private:
+public:
 	GLuint shaderProgramID;
 
 public:

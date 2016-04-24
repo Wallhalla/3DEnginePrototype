@@ -7,6 +7,7 @@ class Cube
 {
 
 private:
+	GLuint vao;
 	Buffer* buffer;
 	GLuint numVertices;
 public:

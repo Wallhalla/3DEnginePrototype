@@ -49,6 +49,10 @@ Cube::Cube()
 		1, 0, 0
 	};
 
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+
 	// Store number of vertices
 	numVertices = sizeof(vertices) / sizeof(vertices[0]);
 
@@ -70,6 +74,8 @@ Cube::Cube()
 		);
 
 	buffer->Disable();
+
+	glBindVertexArray(0);
 }
 
 Cube::~Cube()
@@ -79,10 +85,13 @@ Cube::~Cube()
 
 void Cube::Draw()
 {
+	glBindVertexArray(vao);
 	buffer->Enable();
 
 	// Malen
 	glDrawArrays(GL_TRIANGLES, 0, numVertices);
 
 	buffer->Disable();
+
+	glBindVertexArray(0);
 }

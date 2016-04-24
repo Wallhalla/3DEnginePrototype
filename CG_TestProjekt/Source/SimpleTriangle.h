@@ -5,6 +5,8 @@ class SimpleTriangle
 {
 private:
 	Buffer* buffer;
+	GLuint ibo;
+	GLuint vao;
 
 public:
 	SimpleTriangle();

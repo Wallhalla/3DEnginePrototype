@@ -7,8 +7,23 @@ SimpleTriangle::SimpleTriangle()
 	{
 		-1,-1,0,
 		1,-1,0,
-		0,1,0
+		1,1,0,
+		-1,1,0
 	};
+
+	GLuint indices[] =
+	{
+		0,1,2,0,2,3
+	};
+
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+	glGenBuffers(1, &ibo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,	GL_STATIC_DRAW);
+
 
 	buffer = new Buffer(vertices, sizeof(vertices));
 
@@ -25,6 +40,9 @@ SimpleTriangle::SimpleTriangle()
 		);
 
 	buffer->Disable();
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+	glBindVertexArray(0);
 }
 
 SimpleTriangle::~SimpleTriangle()
@@ -34,9 +52,15 @@ SimpleTriangle::~SimpleTriangle()
 
 void SimpleTriangle::Draw()
 {
-	buffer->Enable();
+	glBindVertexArray(vao);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 
-	buffer->Disable();
+	/*buffer->Enable();*/
+
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	//buffer->Disable();
+	glBindVertexArray(0);
 }
