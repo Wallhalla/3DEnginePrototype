@@ -36,9 +36,6 @@
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp">
       <Filter>Source\Callbacks</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SimpleTriangle.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Shader\ShaderProgam.cpp">
       <Filter>Source\Shader</Filter>
     </ClCompile>
@@ -51,6 +48,15 @@
     <ClCompile Include="Source\Buffer\Buffer.cpp">
       <Filter>Source\Buffers</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Buffer\IndexBuffer.cpp">
+      <Filter>Source\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Buffer\VertexArray.cpp">
+      <Filter>Source\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StaticSprite2D.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window\Window.h">
@@ -58,9 +64,6 @@
     </ClInclude>
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h">
       <Filter>Source\Callbacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SimpleTriangle.h">
-      <Filter>Source\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Source\Shader\ShaderProgram.h">
       <Filter>Source\Shader</Filter>
@@ -73,6 +76,21 @@
     </ClInclude>
     <ClInclude Include="Source\Buffer\Buffer.h">
       <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\IndexBuffer.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\VertexArray.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Buffer\BuffersHeader.h">
+      <Filter>Source\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shader\ShaderHeader.h">
+      <Filter>Source\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StaticSprite2D.h">
+      <Filter>Source\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

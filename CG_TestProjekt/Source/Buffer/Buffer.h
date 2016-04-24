@@ -7,6 +7,7 @@ class Buffer
 private:
 	GLuint vboID;
 	GLuint bufferType;
+	GLushort componentSize;
 
 public:
 	/*
@@ -24,6 +25,7 @@ public:
 	Buffer(
 		GLfloat* inBufferData, 
 		GLsizeiptr inBufferElementsSize,
+		GLushort inBufferComponentElementsCount,
 		GLenum inBufferType = GL_ARRAY_BUFFER, 
 		GLenum inMemoryMode = GL_STATIC_DRAW);
 
@@ -33,4 +35,6 @@ public:
 	void Enable();
 	/* Disable this Buffer to free the type on GPU */
 	void Disable();
+	/* Returns the number of elements, which defines one Component inside the buffer */
+	GLushort GetComponentSize() const;
 };

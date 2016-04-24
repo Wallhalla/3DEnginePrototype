@@ -1,13 +1,12 @@
 #include "Buffer.h"
 
-
-
 Buffer::Buffer(
 	GLfloat* inBufferData,
 	GLsizeiptr inBufferElementsSize,
+	GLushort inBufferComponentElementsCount,
 	GLenum inBufferType,
 	GLenum inMemoryMode)
-	: bufferType(inBufferType)
+	: bufferType(inBufferType), componentSize(inBufferComponentElementsCount)
 {
 	glGenBuffers(1, &vboID);
 	glBindBuffer(bufferType, vboID);
@@ -29,4 +28,9 @@ void Buffer::Enable()
 void Buffer::Disable()
 {
 	glBindBuffer(bufferType, 0);
+}
+
+GLushort Buffer::GetComponentSize() const
+{
+	return componentSize;
 }

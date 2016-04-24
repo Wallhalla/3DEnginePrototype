@@ -34,7 +34,7 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 	
-	buffer = new Buffer(vertArray, sizeof(GLfloat) * vertices.size());
+	buffer = new Buffer(vertArray, sizeof(GLfloat) * vertices.size(), 3);
 
 	buffer->Enable();
 

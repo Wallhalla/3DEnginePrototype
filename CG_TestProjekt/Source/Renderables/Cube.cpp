@@ -57,7 +57,7 @@ Cube::Cube()
 	numVertices = sizeof(vertices) / sizeof(vertices[0]);
 
 	// Create GPU Buffer
-	buffer = new Buffer(vertices, sizeof(vertices));
+	buffer = new Buffer(vertices, sizeof(vertices),3);
 	
 	// Make it active
 	buffer->Enable();

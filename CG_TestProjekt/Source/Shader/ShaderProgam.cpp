@@ -1,4 +1,6 @@
 #include "ShaderProgram.h"
+#include "ShaderHeader.h"
+
 
 #include "FancyLib/FancyUtils.h"
 
@@ -8,6 +10,11 @@
 ShaderProgram::ShaderProgram(const char* vertexShaderFilePath, const char* fragmentShaderFilePath)
 {
 	Init(vertexShaderFilePath, fragmentShaderFilePath);
+
+	for (unsigned short i = 0; i < EShaderAttributes::MAX_ATTRIBUTES; i++)
+	{
+		glEnableVertexAttribArray(i);
+	}
 }
 
 ShaderProgram::~ShaderProgram()
@@ -130,10 +137,24 @@ bool ShaderProgram::CheckProgramAnyError()
 
 void ShaderProgram::Enable()
 {
-	glUseProgram(shaderProgramID);
+	glUseProgram(shaderProgramID);	
 }
 
 void ShaderProgram::Disable()
 {
 	glUseProgram(0);
+}
+
+GLushort ShaderProgram::GetUniformLocation(GLchar* name) const
+{
+	return glGetUniformLocation(shaderProgramID, name);
+}
+
+void ShaderProgram::SetUniformLocationMat4(GLchar* uniformName, const FancyMath::Matrix4& matrix)
+{
+	// Get Handle
+	GLushort uniformHandle = GetUniformLocation(uniformName);
+
+	// Set Matrix at Handle
+	glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, matrix.Elements);
 }

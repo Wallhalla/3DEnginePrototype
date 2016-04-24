@@ -1,19 +1,25 @@
 #pragma once
 
 #include "GL/glew.h"
+#include "FancyLib/FancyMath.h"
 
 class ShaderProgram
 {
-public:
+	/* =================================
+	 * Member 
+	 * =================================
+	 */
+private:
 	GLuint shaderProgramID;
 
+	/* =================================
+	 * Initialization 
+	 * =================================
+	 */
 public:
 	ShaderProgram(const char* vertexShaderFilePath, const char* fragmentShaderFilePath);
 	~ShaderProgram();
-
-	void Enable();
-	void Disable();
-
+	
 private:
 	void Init(const char* vertexShaderFilePath, const char* fragmentShaderFilePath);
 
@@ -35,5 +41,20 @@ private:
 	* Checks Validation Status of the ShaderProgram
 	* Returns true in case of errors and prints to Console
 	*/
-	bool CheckProgramAnyError();
+	bool CheckProgramAnyError();	
+
+
+	/*=================================
+	* Methods
+	* =================================
+	*/
+public:
+	void Enable();
+	void Disable();
+
+private:
+	GLushort GetUniformLocation(GLchar* name) const;
+
+public:
+	void SetUniformLocationMat4(GLchar* uniformName, const FancyMath::Matrix4& matrix);
 };
