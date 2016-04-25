@@ -10,13 +10,14 @@ namespace FancyMath
 
 	struct FANCYMATH_API Matrix4
 	{
-		union
+		union 
 		{
 			float Elements[4 * 4];
 			struct
 			{
 				Vector4f Collumns[4];
 			};
+			
 		};
 
 		Matrix4();
@@ -37,7 +38,7 @@ namespace FancyMath
 
 	FANCYMATH_API Matrix4 IdentityMatrix();
 	FANCYMATH_API Matrix4 OrthographicMatrix(float left, float right, float bottom, float top, float near, float far);
-	FANCYMATH_API Matrix4 Frustum(int left, int right, int bottom, int top, int near, int far);
+	FANCYMATH_API Matrix4 Frustum(float left, float right, float bottom, float top, float near, float far);
 	FANCYMATH_API Matrix4 PerspectiveMatrix(float fieldOfView, float aspectRatio, float near, float far);
 
 	FANCYMATH_API Matrix4 Translate(const Vector3f& translationVector);

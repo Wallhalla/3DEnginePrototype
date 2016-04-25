@@ -1,20 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CG_TestProjekt", "CG_TestProjekt\CG_TestProjekt.vcxproj", "{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
-		Release|Win32 = Release|Win32
+		DebugVC13|Win32 = DebugVC13|Win32
+		DebugVC15|Win32 = DebugVC15|Win32
+		ReleaseVC13|Win32 = ReleaseVC13|Win32
+		ReleaseVC15|Win32 = ReleaseVC15|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.Debug|Win32.ActiveCfg = Debug|Win32
-		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.Debug|Win32.Build.0 = Debug|Win32
-		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.Release|Win32.ActiveCfg = Release|Win32
-		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.Release|Win32.Build.0 = Release|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.DebugVC13|Win32.ActiveCfg = DebugVC13|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.DebugVC13|Win32.Build.0 = DebugVC13|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.DebugVC15|Win32.ActiveCfg = DebugVC15|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.DebugVC15|Win32.Build.0 = DebugVC15|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.ReleaseVC13|Win32.ActiveCfg = ReleaseVC13|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.ReleaseVC13|Win32.Build.0 = ReleaseVC13|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.ReleaseVC15|Win32.ActiveCfg = ReleaseVC15|Win32
+		{9B1AA781-C57E-4E71-90A3-FE57A5BF3C77}.ReleaseVC15|Win32.Build.0 = ReleaseVC15|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
