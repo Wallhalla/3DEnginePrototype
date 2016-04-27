@@ -20,9 +20,6 @@ int main()
 	
 	Matrix4 ortho = FancyMath::OrthographicMatrix(0, 10, 0, 10, 0.1f, 10);
 
-	Matrix4 translation = Translate(Vector3f(5, 5, -1));
-	Matrix4 rotation = Rotate(45.0f, Vector3f(0, 0, 1));
-		
 	ShaderProgram shader = ShaderProgram(
 		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
 		"Source/Shader/ShaderFiles/BasicShader.fragmentShader");

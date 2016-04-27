@@ -52,9 +52,4 @@ public:
 	void Enable();
 	void Disable();
 
-private:
-	GLushort GetUniformLocation(GLchar* name) const;
-
-public:
-	void SetUniformLocationMat4(GLchar* uniformName, const FancyMath::Matrix4& matrix);
 };

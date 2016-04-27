@@ -145,16 +145,3 @@ void ShaderProgram::Disable()
 	glUseProgram(0);
 }
 
-GLushort ShaderProgram::GetUniformLocation(GLchar* name) const
-{
-	return glGetUniformLocation(shaderProgramID, name);
-}
-
-void ShaderProgram::SetUniformLocationMat4(GLchar* uniformName, const FancyMath::Matrix4& matrix)
-{
-	// Get Handle
-	GLushort uniformHandle = GetUniformLocation(uniformName);
-
-	// Set Matrix at Handle
-	glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, matrix.Elements);
-}
