@@ -7,8 +7,7 @@
 class Circle2D
 {
 private:
-	GLuint vao;
-	Buffer* buffer;
+	GLuint vao, vbo;	
 	GLuint numVertices;
 
 public:

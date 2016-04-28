@@ -36,6 +36,7 @@ dlldata.c
 project.lock.json
 artifacts/
 
+*.exe
 *.iobj
 *.ipdb
 *.exp

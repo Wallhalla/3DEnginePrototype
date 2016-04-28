@@ -9,7 +9,7 @@ class ShaderProgram
 	 * Member 
 	 * =================================
 	 */
-private:
+public:
 	GLuint shaderProgramID;
 
 	/* =================================
