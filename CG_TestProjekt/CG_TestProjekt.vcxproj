@@ -31,6 +31,7 @@
     <ClCompile Include="Source\Buffer\IndexBuffer.cpp" />
     <ClCompile Include="Source\Buffer\VertexArray.cpp" />
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp" />
+    <ClCompile Include="Source\Camera\Camera.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Renderables\Circle2D.cpp" />
     <ClCompile Include="Source\Renderables\Cube.cpp" />
@@ -44,6 +45,7 @@
     <ClInclude Include="Source\Buffer\IndexBuffer.h" />
     <ClInclude Include="Source\Buffer\VertexArray.h" />
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h" />
+    <ClInclude Include="Source\Camera\Camera.h" />
     <ClInclude Include="Source\Renderables\Circle2D.h" />
     <ClInclude Include="Source\Renderables\Cube.h" />
     <ClInclude Include="Source\Shader\ShaderHeader.h" />

@@ -57,6 +57,9 @@
     <ClCompile Include="Source\StaticSprite2D.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Camera\Camera.cpp">
+      <Filter>Source\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window\Window.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Source\StaticSprite2D.h">
       <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Camera\Camera.h">
+      <Filter>Source\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
