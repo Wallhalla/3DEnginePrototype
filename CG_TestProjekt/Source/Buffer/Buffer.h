@@ -23,7 +23,7 @@ public:
 	 * GL_STREAM_DRAW -> for data which probably changes fast (f.e. every frame)
 	 */
 	Buffer(
-		GLfloat* inBufferData, 
+		void* inBufferData, 
 		GLsizeiptr inBufferElementsSize,
 		GLushort inBufferComponentElementsCount,
 		GLenum inBufferType = GL_ARRAY_BUFFER, 

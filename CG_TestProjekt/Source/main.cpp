@@ -26,21 +26,42 @@ int main()
 		"Source/Shader/ShaderFiles/BasicShader.fragmentShader");
 	shader.Enable();	
 				
-	//StaticSprite2D sprite1 = StaticSprite2D(Vector3f(0,0,0), Vector2f(2, 2));
+	StaticSprite2D sprite = StaticSprite2D(Vector3f(0,0,0), Vector2f(1, 1));
+	//Circle2D circle = Circle2D(5, Vector3f(), 20);	
+	
+	Matrix4 modelMatrix = Scale(Vector3f(0.5f, 0.5, 0.5f));
 
-	Circle2D circle = Circle2D(5, Vector3f(), 20);
+	shader.SetUniformMatrix4("modelMatrix", modelMatrix);
 
-	GLuint projection = glGetUniformLocation(shader.shaderProgramID, "projectionMatrix");
-	glUniformMatrix4fv(projection, 1, GL_FALSE, perspective.Elements);
-
-	GLuint model = glGetUniformLocation(shader.shaderProgramID, "modelMatrix");
-	glUniformMatrix4fv(model, 1, GL_FALSE, Translate(Vector3f(5,5,-1.5f)).Elements);
-		
+	
+	float i = 0;
+	bool start = true;
 	while (!window.WasWindowClosed())
 	{
+		if (start)
+		{
+			i += 0.005f;
+		}
+		else
+		{
+			i -= 0.005f;
+		}
+		if (i > 45)
+		{
+			start = false;
+		}
+		else if (i < 0)
+		{
+			start = true;
+		}
+
 		window.Clear();	
+
+		//Matrix4 modelMatrix = Rotate(i, Vector3f(0, 0, 1)) * Translate(Vector3f(5, 5, -1.5f));
 		
-		circle.Draw();
+				
+		sprite.Draw();
+		
 
 		window.Update();
 	}

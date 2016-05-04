@@ -3,6 +3,8 @@
 
 
 #include "FancyLib/FancyUtils.h"
+#include "FancyLib/FancyMath.h"
+using namespace FancyMath;
 
 #include <iostream>
 #include <vector>
@@ -143,5 +145,17 @@ void ShaderProgram::Enable()
 void ShaderProgram::Disable()
 {
 	glUseProgram(0);
+}
+
+void ShaderProgram::SetUniformMatrix4(GLchar* uniformName, Matrix4 inMatrix)
+{
+	GLuint handle = GetUniformLocation(uniformName);
+
+	glUniformMatrix4fv(handle, 1, GL_FALSE, inMatrix.Elements);
+}
+
+GLuint ShaderProgram::GetUniformLocation(GLchar* uniformName)
+{
+	return glGetUniformLocation(shaderProgramID, uniformName);
 }
 

@@ -9,7 +9,7 @@ class ShaderProgram
 	 * Member 
 	 * =================================
 	 */
-public:
+private:
 	GLuint shaderProgramID;
 
 	/* =================================
@@ -51,5 +51,10 @@ private:
 public:
 	void Enable();
 	void Disable();
+
+	void SetUniformMatrix4(GLchar* uniformName, FancyMath::Matrix4 inMatrix);
+
+private:
+	GLuint GetUniformLocation(GLchar* uniformName);
 
 };

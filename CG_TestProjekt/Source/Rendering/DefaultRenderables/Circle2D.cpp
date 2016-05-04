@@ -11,8 +11,7 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 {
 	std::vector<Vector3f> vertices;
 
-	vertices.push_back(Vector3f());
-	
+	vertices.push_back(Vector3f());	
 		
 	for (unsigned int i = 0; i <= numTriangles; i++)
 	{
@@ -26,43 +25,25 @@ Circle2D::Circle2D(float radius, FancyMath::Vector3f position, unsigned int numT
 
 	numVertices = vertices.size();
 
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+	VAO = new VertexArray();
+	VAO->Enable();
 
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f) * vertices.size(), vertices.data(), GL_STATIC_DRAW);	
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(
-		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-		3,                  // size
-		GL_FLOAT,           // type
-		GL_FALSE,           // normalized?
-		0,                  // stride
-		0					// array buffer offset
-		);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	glBindVertexArray(0);
+	VAO->ConnectBufferToShaderAttribute(new Buffer(vertices.data(), sizeof(Vector3f) * vertices.size(), 3), EShaderAttributes::POSITION);
 	
+	VAO->Disable();
 }
 
 Circle2D::~Circle2D()
-{
-	glDeleteVertexArrays(1, &vao);
-	glDeleteBuffers(1, &vbo);
+{	
+	delete VAO;
 }
 
 void Circle2D::Draw()
 {
-	glBindVertexArray(vao);
-	
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	VAO->Enable();	
 
 	// Malen
-	glDrawArrays(GL_TRIANGLE_FAN, 0, numVertices);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	
-	glBindVertexArray(0);
+	glDrawArrays(GL_TRIANGLE_FAN, 0, numVertices);	
+
+	VAO->Disable();
 }

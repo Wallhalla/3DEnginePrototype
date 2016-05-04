@@ -1,7 +1,7 @@
 #include "Buffer.h"
 
 Buffer::Buffer(
-	GLfloat* inBufferData,
+	void* inBufferData,
 	GLsizeiptr inBufferElementsSize,
 	GLushort inBufferComponentElementsCount,
 	GLenum inBufferType,
