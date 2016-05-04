@@ -21,9 +21,9 @@ int main()
 {
 	Window window("Einfuehrung Computergrafik", WINDOWSIZE_Y, WINDOWSIZE_Y);	
 	
-	Matrix4 perspective = FancyMath::PerspectiveMatrix(45, ASPECT_RATIO, 1, 10);
+	Matrix4 perspective = FancyMath::PerspectiveMatrix(45, ASPECT_RATIO, 1, 50);
 	//perspective.Collumns[1].Y = 0.75f;
-	Camera camera = Camera(Vector3f(0, 0,3), Vector3f(0, 0, 0), Vector3f(0, 1, 0));
+	Camera camera = Camera(Vector3f(0, 0, 5), Vector3f(0, 0, 0), Vector3f(0, 1, 0));
 
 	ShaderProgram shader = ShaderProgram(
 		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
@@ -31,12 +31,17 @@ int main()
 	shader.Enable();	
 				
 	StaticSprite2D sprite = StaticSprite2D(Vector3f(0,0,0), Vector2f(1, 1));
-	Matrix4 spriteModel = Translate(Vector3f(-4, -4, -3.5));
+	Matrix4 spriteModel = Translate(Vector3f(-4, -4, 3));
 
 	Circle2D circle = Circle2D(2, Vector3f(), 50);	
 		
 	shader.SetUniformMatrix4("projection_matrix", perspective);
-	shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
+	//shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
+	
+	Matrix4 cubeModel = Translate(Vector3f(0, 0, 0)) * Scale(Vector3f(3, 3, 3));
+	shader.SetUniformMatrix4("model_matrix", cubeModel);
+
+	Cube cube;
 
 	
 	float i = 0;
@@ -62,14 +67,17 @@ int main()
 
 		window.Clear();	
 
+		shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
+
 		//Matrix4 modelMatrix = Rotate(i, Vector3f(0, 0, 1)) * Translate(Vector3f(5, 5, -1.5f));
-		Matrix4 modelMatrix = Translate(Vector3f(0, 0, -3.5f)) * Rotate(i,Vector3f(0,1,0));
+		/*Matrix4 modelMatrix = Translate(Vector3f(0, 0, -3.5f)) * Rotate(i,Vector3f(0,1,0));
 		shader.SetUniformMatrix4("model_matrix", modelMatrix);
 		circle.Draw();
 
 		shader.SetUniformMatrix4("model_matrix", spriteModel);
-		sprite.Draw();
+		sprite.Draw();*/
 		
+		cube.Draw();
 
 		window.Update();
 	}

@@ -1,97 +1,135 @@
 #include "Cube.h"
 
+#include "../Helpers/Colors.h"
+#include "FancyLib/FancyMath.h"
+using namespace FancyMath;
+
 #include <iostream>
 Cube::Cube()
 {
-	GLfloat vertices[] =
+	Vector3f vertices[] =
 	{
 		// Front Face
-		0, 0, 0,
-		1, 0, 0,
-		1, 1, 0,
-		1, 1, 0,
-		0, 1, 0,
-		0, 0, 0,
+		Vector3f(0, 0, 0),
+		Vector3f(1, 0, 0),
+		Vector3f(1, 1, 0),
+		Vector3f(1, 1, 0),
+		Vector3f(0, 1, 0),
+		Vector3f(0, 0, 0),
 		//// Back Face
-		0, 0, -1,
-		1, 0, -1,
-		1, 1, -1,
-		1, 1, -1,
-		0, 1, -1,
-		0, 0, -1,
+		Vector3f(0, 0, -1),
+		Vector3f(1, 0, -1),
+		Vector3f(1, 1, -1),
+		Vector3f(1, 1, -1),
+		Vector3f(0, 1, -1),
+		Vector3f(0, 0, -1),
 		// Top Face
-		0, 1, 0,
-		1, 1, 0,
-		1, 1, -1,
-		1, 1, -1,
-		0, 1, -1,
-		0, 1, 0,
+		Vector3f(0, 1, 0),
+		Vector3f(1, 1, 0),
+		Vector3f(1, 1, -1),
+		Vector3f(1, 1, -1),
+		Vector3f(0, 1, -1),
+		Vector3f(0, 1, 0),
 		// Bottom Face
-		0, 0, 0,
-		1, 0, 0,
-		1, 0, -1,
-		1, 0, -1,
-		0, 0, -1,
-		0, 0, 0,
+		Vector3f(0, 0, 0),
+		Vector3f(1, 0, 0),
+		Vector3f(1, 0, -1),
+		Vector3f(1, 0, -1),
+		Vector3f(0, 0, -1),
+		Vector3f(0, 0, 0),
 		// Left Face
-		0, 0, 0,
-		0, 0, -1,
-		0, 1, -1,
-		0, 1, -1,
-		0, 1, 0,
-		0, 0, 0,
+		Vector3f(0, 0, 0),
+		Vector3f(0, 0, -1),
+		Vector3f(0, 1, -1),
+		Vector3f(0, 1, -1),
+		Vector3f(0, 1, 0),
+		Vector3f(0, 0, 0),
 		// Right Face
-		1, 0, 0,
-		1, 0, -1,
-		1, 1, -1,
-		1, 1, -1,
-		1, 1, 0,
-		1, 0, 0
+		Vector3f(1, 0, 0),
+		Vector3f(1, 0, -1),
+		Vector3f(1, 1, -1),
+		Vector3f(1, 1, -1),
+		Vector3f(1, 1, 0),
+		Vector3f(1, 0, 0)
 	};
 
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+	Vector4f colors[] =
+	{
+		// Front Face
+		Color::Red,
+		Color::Red,
+		Color::Red,
+		Color::Red,
+		Color::Red,
+		Color::Red,
+		// Back Face
+		Color::White,
+		Color::White,
+		Color::White,
+		Color::White,
+		Color::White,
+		Color::White,
+		// Top Face
+		Color::Blue,
+		Color::Blue,
+		Color::Blue,
+		Color::Blue,
+		Color::Blue,
+		Color::Blue,
+		// Bottom Face
+		Color::Magenta,
+		Color::Magenta,
+		Color::Magenta,
+		Color::Magenta,
+		Color::Magenta,
+		Color::Magenta,		
+		// Left Face
+		Color::Cyan,
+		Color::Cyan,
+		Color::Cyan,
+		Color::Cyan,
+		Color::Cyan,
+		Color::Cyan,
+		// Right Face
+		Color::Yellow,
+		Color::Yellow,
+		Color::Yellow,
+		Color::Yellow,
+		Color::Yellow,
+		Color::Yellow
+		
+	};
 
 
 	// Store number of vertices
 	numVertices = sizeof(vertices) / sizeof(vertices[0]);
 
-	// Create GPU Buffer
-	buffer = new Buffer(vertices, sizeof(vertices),3);
-	
-	// Make it active
-	buffer->Enable();
+	vao = new VertexArray();
+	vao->Enable();
 
-	// Bind it to VertexShader Location 0
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(
-		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-		3,                  // size (how many indices define one component) 3 = Vector3
-		GL_FLOAT,           // type
-		GL_FALSE,           // normalized?
-		0,                  // stride
-		0					// array buffer offset
-		);
+	// Create GPU Buffer Positions
+	vao->ConnectBufferToShaderAttribute(
+		new Buffer(vertices, sizeof(vertices), 3), 
+		EShaderAttributes::POSITION);
 
-	buffer->Disable();
+	vao->ConnectBufferToShaderAttribute(
+		new Buffer(colors, sizeof(colors), 4),
+		EShaderAttributes::COLOR);
 
-	glBindVertexArray(0);
+	vao->Disable();
 }
 
 Cube::~Cube()
 {
-	delete buffer;
+	delete vao;
 }
 
 void Cube::Draw()
 {
-	glBindVertexArray(vao);
-	buffer->Enable();
+	vao->Enable();
 
 	// Malen
 	glDrawArrays(GL_TRIANGLES, 0, numVertices);
 
-	buffer->Disable();
-
-	glBindVertexArray(0);
+	vao->Disable();
 }

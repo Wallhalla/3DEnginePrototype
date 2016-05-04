@@ -7,8 +7,7 @@ class Cube
 {
 
 private:
-	GLuint vao;
-	Buffer* buffer;
+	VertexArray* vao;	
 	GLuint numVertices;
 public:
 	Cube();
