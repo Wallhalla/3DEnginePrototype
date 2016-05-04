@@ -150,7 +150,7 @@ void ShaderProgram::SetUniformMatrix4(GLchar* uniformName, Matrix4 inMatrix)
 {
 	GLint handle = GetUniformLocation(uniformName);
 
-	if (handle == 0)
+	if (handle < 0)
 	{
 		std::cout << "Couldnt find uniform in Shader: " << uniformName << std::endl;
 	}

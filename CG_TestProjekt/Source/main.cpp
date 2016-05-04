@@ -15,14 +15,15 @@ using namespace FancyMath;
 
 #define WINDOWSIZE_X 800
 #define WINDOWSIZE_Y 600
-#define ASPECT_RATIO (float)WINDOWSIZE_X / (float)WINDOWSIZE_Y
+#define ASPECT_RATIO (float)(WINDOWSIZE_X / WINDOWSIZE_Y)
 
 int main()
 {
 	Window window("Einfuehrung Computergrafik", WINDOWSIZE_Y, WINDOWSIZE_Y);	
 	
 	Matrix4 perspective = FancyMath::PerspectiveMatrix(45, ASPECT_RATIO, 1, 10);
-	Camera camera = Camera(Vector3f(0, 4, 5), Vector3f(0, 0, 0), Vector3f(0, 1, 0));
+	//perspective.Collumns[1].Y = 0.75f;
+	Camera camera = Camera(Vector3f(0, 0,3), Vector3f(0, 0, 0), Vector3f(0, 1, 0));
 
 	ShaderProgram shader = ShaderProgram(
 		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
@@ -30,11 +31,10 @@ int main()
 	shader.Enable();	
 				
 	StaticSprite2D sprite = StaticSprite2D(Vector3f(0,0,0), Vector2f(1, 1));
-	//Circle2D circle = Circle2D(5, Vector3f(), 20);	
-	
-	Matrix4 modelMatrix = Translate(Vector3f(0, 0, -3.5f)) * Rotate(0, Vector3f(0, 0, 1));
+	Matrix4 spriteModel = Translate(Vector3f(-4, -4, -3.5));
 
-	shader.SetUniformMatrix4("model_matrix", modelMatrix);
+	Circle2D circle = Circle2D(2, Vector3f(), 50);	
+		
 	shader.SetUniformMatrix4("projection_matrix", perspective);
 	shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
 
@@ -51,7 +51,7 @@ int main()
 		{
 			i -= 0.005f;
 		}
-		if (i > 45)
+		if (i > 180)
 		{
 			start = false;
 		}
@@ -63,8 +63,11 @@ int main()
 		window.Clear();	
 
 		//Matrix4 modelMatrix = Rotate(i, Vector3f(0, 0, 1)) * Translate(Vector3f(5, 5, -1.5f));
-		
-				
+		Matrix4 modelMatrix = Translate(Vector3f(0, 0, -3.5f)) * Rotate(i,Vector3f(0,1,0));
+		shader.SetUniformMatrix4("model_matrix", modelMatrix);
+		circle.Draw();
+
+		shader.SetUniformMatrix4("model_matrix", spriteModel);
 		sprite.Draw();
 		
 

@@ -15,5 +15,10 @@ public:
 
 public:
 	FancyMath::Matrix4 GetViewMatrix();
+
+	static Camera* GetSuperCamera();
+
+private:
+	static Camera* globalCamera;
 };
 

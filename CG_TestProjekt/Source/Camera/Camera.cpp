@@ -7,6 +7,13 @@ Camera::Camera(Vector3f inEyeVector, Vector3f inViewTarget, Vector3f inUpVector)
 	eyeVector = inEyeVector;
 	viewTarget = inViewTarget;
 	upVector = inUpVector;
+
+	globalCamera = this;
+}
+
+Camera* Camera::GetSuperCamera()
+{
+	return globalCamera;
 }
 
 Camera::~Camera()

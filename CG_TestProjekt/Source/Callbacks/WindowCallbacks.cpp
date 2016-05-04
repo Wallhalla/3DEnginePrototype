@@ -14,6 +14,7 @@ void CG::OnKeyAction(GLFWwindow* window, int key, int scancode, int action, int 
 {
 	if (key == GLFW_KEY_W)
 	{
-		std::cout << "key pressed" << std::endl;
+		std::cout << "W" << std::endl;
+		
 	}
 }
