@@ -2,6 +2,8 @@
 
 using namespace FancyMath;
 
+Camera* Camera::globalCamera = nullptr;
+
 Camera::Camera(Vector3f inEyeVector, Vector3f inViewTarget, Vector3f inUpVector)
 {
 	eyeVector = inEyeVector;
