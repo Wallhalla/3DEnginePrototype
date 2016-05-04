@@ -7,6 +7,8 @@ using namespace CG;
 #include "Rendering/DefaultRenderables/Circle2D.h"
 #include "Rendering/DefaultRenderables/Cube.h"
 
+#include "Camera/Camera.h"
+
 
 #include "FancyLib/FancyMath.h"
 using namespace FancyMath;
@@ -19,7 +21,8 @@ int main()
 {
 	Window window("Einfuehrung Computergrafik", WINDOWSIZE_Y, WINDOWSIZE_Y);	
 	
-	Matrix4 perspective = FancyMath::OrthographicMatrix(0,10,0,10,1,10);
+	Matrix4 perspective = FancyMath::PerspectiveMatrix(45, ASPECT_RATIO, 1, 10);
+	Camera camera = Camera(Vector3f(0, 4, 5), Vector3f(0, 0, 0), Vector3f(0, 1, 0));
 
 	ShaderProgram shader = ShaderProgram(
 		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
@@ -29,9 +32,11 @@ int main()
 	StaticSprite2D sprite = StaticSprite2D(Vector3f(0,0,0), Vector2f(1, 1));
 	//Circle2D circle = Circle2D(5, Vector3f(), 20);	
 	
-	Matrix4 modelMatrix = Scale(Vector3f(0.5f, 0.5, 0.5f));
+	Matrix4 modelMatrix = Translate(Vector3f(0, 0, -3.5f)) * Rotate(0, Vector3f(0, 0, 1));
 
-	shader.SetUniformMatrix4("modelMatrix", modelMatrix);
+	shader.SetUniformMatrix4("model_matrix", modelMatrix);
+	shader.SetUniformMatrix4("projection_matrix", perspective);
+	shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
 
 	
 	float i = 0;

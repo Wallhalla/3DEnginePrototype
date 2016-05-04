@@ -70,6 +70,7 @@ bool Window::InitGLEW()
 void Window::SetWindowCallbacks()
 {
 	glfwSetWindowSizeCallback(windowInstance, OnWindowResize);
+	glfwSetKeyCallback(windowInstance, OnKeyAction);
 }
 
 void Window::Update()

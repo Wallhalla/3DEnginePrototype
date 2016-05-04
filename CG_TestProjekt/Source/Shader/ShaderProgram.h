@@ -55,6 +55,6 @@ public:
 	void SetUniformMatrix4(GLchar* uniformName, FancyMath::Matrix4 inMatrix);
 
 private:
-	GLuint GetUniformLocation(GLchar* uniformName);
+	GLint GetUniformLocation(GLchar* uniformName);
 
 };
