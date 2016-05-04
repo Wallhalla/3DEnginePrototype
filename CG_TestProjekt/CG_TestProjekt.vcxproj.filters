@@ -25,6 +25,12 @@
     <Filter Include="Source\Shader\ShaderFiles">
       <UniqueIdentifier>{122f05bb-f98a-4622-9798-0def6f797fb8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Rendering\DefaultRenderables">
+      <UniqueIdentifier>{807fdc61-74d1-4bc5-bfd0-df76b0f65f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Rendering\Helpers">
+      <UniqueIdentifier>{429ef0a7-a785-4b6d-a424-04c56efe8182}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -39,12 +45,6 @@
     <ClCompile Include="Source\Shader\ShaderProgam.cpp">
       <Filter>Source\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Renderables\Circle2D.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Renderables\Cube.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Buffer\Buffer.cpp">
       <Filter>Source\Buffers</Filter>
     </ClCompile>
@@ -54,11 +54,17 @@
     <ClCompile Include="Source\Buffer\VertexArray.cpp">
       <Filter>Source\Buffers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\StaticSprite2D.cpp">
-      <Filter>Source\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Camera\Camera.cpp">
       <Filter>Source\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\DefaultRenderables\Circle2D.cpp">
+      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\DefaultRenderables\Cube.cpp">
+      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\DefaultRenderables\StaticSprite2D.cpp">
+      <Filter>Source\Rendering\DefaultRenderables</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,12 +76,6 @@
     </ClInclude>
     <ClInclude Include="Source\Shader\ShaderProgram.h">
       <Filter>Source\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Renderables\Circle2D.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Renderables\Cube.h">
-      <Filter>Source\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Source\Buffer\Buffer.h">
       <Filter>Source\Buffers</Filter>
@@ -92,11 +92,20 @@
     <ClInclude Include="Source\Shader\ShaderHeader.h">
       <Filter>Source\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="Source\StaticSprite2D.h">
-      <Filter>Source\Rendering</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Camera\Camera.h">
       <Filter>Source\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\DefaultRenderables\Circle2D.h">
+      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\DefaultRenderables\Cube.h">
+      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\DefaultRenderables\StaticSprite2D.h">
+      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Helpers\Colors.h">
+      <Filter>Source\Rendering\Helpers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

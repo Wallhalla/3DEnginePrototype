@@ -1,5 +1,5 @@
 #include "GL/glew.h"
-#include "Buffer/BuffersHeader.h"
+#include "../../Buffer/BuffersHeader.h"
 
 #include "FancyLib/FancyMath.h"
 

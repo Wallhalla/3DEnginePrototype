@@ -2,10 +2,10 @@
 using namespace CG;
 
 #include "Shader/ShaderProgram.h"
-#include "StaticSprite2D.h"
+#include "Rendering/DefaultRenderables/StaticSprite2D.h"
 
-#include "Renderables/Circle2D.h"
-#include "Renderables/Cube.h"
+#include "Rendering/DefaultRenderables/Circle2D.h"
+#include "Rendering/DefaultRenderables/Cube.h"
 
 
 #include "FancyLib/FancyMath.h"

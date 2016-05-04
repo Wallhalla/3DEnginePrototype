@@ -1,8 +1,7 @@
 #include "FancyLib/FancyMath.h"
 
 #include "GL/glew.h"
-
-#include "../Buffer/Buffer.h"
+#include "../../Buffer/BuffersHeader.h"
 
 class Circle2D
 {
