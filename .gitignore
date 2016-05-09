@@ -11,8 +11,20 @@
 *.userprefs
 
 # Build results
+<<<<<<< HEAD
 [Ll]og/
 Intermediate/
+=======
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+>>>>>>> c6aac97a9f1a16b15a24a95aa78a7ddb604f40ae
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -36,10 +48,13 @@ dlldata.c
 project.lock.json
 artifacts/
 
+<<<<<<< HEAD
 *.exe
 *.iobj
 *.ipdb
 *.exp
+=======
+>>>>>>> c6aac97a9f1a16b15a24a95aa78a7ddb604f40ae
 *_i.c
 *_p.c
 *_i.h
@@ -159,11 +174,20 @@ csx/
 ecf/
 rcf/
 
+<<<<<<< HEAD
 # Windows Store app package directories and files
 AppPackages/
 BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
+=======
+# Microsoft Azure ApplicationInsights config file
+ApplicationInsights.config
+
+# Windows Store app package directory
+AppPackages/
+BundleArtifacts/
+>>>>>>> c6aac97a9f1a16b15a24a95aa78a7ddb604f40ae
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
@@ -182,10 +206,13 @@ ClientBin/
 node_modules/
 orleans.codegen.cs
 
+<<<<<<< HEAD
 # Since there are multiple workflows, uncomment next line to ignore bower_components 
 # (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
 #bower_components/
 
+=======
+>>>>>>> c6aac97a9f1a16b15a24a95aa78a7ddb604f40ae
 # RIA/Silverlight projects
 Generated_Code/
 
@@ -231,6 +258,7 @@ _Pvt_Extensions
 
 # Paket dependency manager
 .paket/paket.exe
+<<<<<<< HEAD
 paket-files/
 
 # FAKE - F# Make
@@ -239,3 +267,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+=======
+
+# FAKE - F# Make
+.fake/
+>>>>>>> c6aac97a9f1a16b15a24a95aa78a7ddb604f40ae
