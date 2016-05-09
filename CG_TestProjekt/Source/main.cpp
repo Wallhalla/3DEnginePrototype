@@ -11,6 +11,9 @@ using namespace CG;
 #include "FancyLib/FancyMath.h"
 using namespace FancyMath;
 
+#include "Rendering/SceneObjects/Lights/Lights.h"
+using namespace Lighting;
+
 #define WINDOWSIZE_X 800
 #define WINDOWSIZE_Y 600
 #define ASPECT_RATIO (float)(WINDOWSIZE_X / WINDOWSIZE_Y)
@@ -26,13 +29,22 @@ int main()
 	ShaderProgram shader = ShaderProgram(
 		"Source/Shader/ShaderFiles/BasicShader");
 	shader.Enable();	
+
+	AmbientLight = Vector3f(0.2f, 0.2f, 0.2f);
+	shader.SetUniformVector3("ambientLight", AmbientLight);
+
+	// Sonne leuchtet nach unten links mit weißem Licht
+	DirectionalLight sun = DirectionalLight(Vector3f(0, 1, 0), Vector3f(1,1,1));
+	shader.SetUniformVector3("sunLightDirection", sun.direction);
+	shader.SetUniformVector3("sunLightColor", sun.color);
+
 				
 	shader.SetUniformMatrix4("projection_matrix", perspective);
 	//shader->Disable();
 	
 	SceneInstance* cubeMesh = new SceneInstance(&shader, std::string("Cube"));
 
-	cubeMesh->SetLocation(Vector3f(0, 0, -10));
+	cubeMesh->SetLocation(Vector3f(0, 0, -5));
 
 	glEnable(GL_DEPTH_TEST);
 	
@@ -58,6 +70,10 @@ int main()
 		}
 
 		window.Clear();	
+
+		Matrix4 rot = Rotate(i, Vector3f(1, 0, 0));
+		Matrix4 rot1 = Rotate(i, Vector3f(0, 1, 0));
+		cubeMesh->SetRotation(rot * rot1);
 
 		cubeMesh->Draw();
 

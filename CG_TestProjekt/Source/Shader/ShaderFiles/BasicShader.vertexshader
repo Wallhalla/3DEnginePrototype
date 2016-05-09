@@ -3,12 +3,14 @@
 layout(location = 0) in vec3 vertexPosition;
 layout(location = 1) in vec4 vertexColor;
 layout(location = 2) in vec2 textureCoord;
+layout(location = 3) in vec3 vertexNormal;
 
 out DATA
 {
 	vec3 position;
 	vec4 color;
 	vec2 tex;
+	vec3 normal;
 
 } vs_out;
 
@@ -21,5 +23,9 @@ void main()
 	vs_out.position = vertexPosition;
 	vs_out.color = vertexColor;
 	vs_out.tex = textureCoord;
+
+	// transform the normal without the perspective matrix influence, then make the output normalized
+	vs_out.normal = normalize(model_matrix * vec4(vertexNormal,1)).rgb;
+
 	gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertexPosition,1);
 }

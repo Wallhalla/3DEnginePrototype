@@ -13,4 +13,7 @@ public:
 
 	void Draw() const override;
 
+private:
+	void SetFaceNormal(QuadFace& face, FancyMath::Vector3f normal);
+
 };

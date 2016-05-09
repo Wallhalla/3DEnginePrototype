@@ -67,6 +67,14 @@ Cube::Cube(ShaderProgram* inShaderProgram)
 		faceIndex++;
 	}
 
+	// Set Normals of the Faces
+	SetFaceNormal(faces[0], Vector3f(0, 0, 1));
+	SetFaceNormal(faces[1], Vector3f(0, 0, -1));
+	SetFaceNormal(faces[2], Vector3f(0, 1, 0));
+	SetFaceNormal(faces[3], Vector3f(0, -1, 0));
+	SetFaceNormal(faces[4], Vector3f(-1, 0, 0));
+	SetFaceNormal(faces[5], Vector3f(1, 0, 0));
+
 	vbo = new Buffer(faces, sizeof(QuadFace) * 6);
 
 	vao = new VertexArray();
@@ -97,6 +105,14 @@ Cube::Cube(ShaderProgram* inShaderProgram)
 		(GLvoid*)(offsetof(VertexData, VertexData::texCoord))
 		);
 
+	vao->ConnectBufferToShaderAttribute(
+		vbo,
+		3,
+		EShaderAttributes::NORMAL,
+		sizeof(VertexData),
+		(GLvoid*)(offsetof(VertexData, VertexData::normal))
+		);
+
 	vao->Disable();
 }
 
@@ -116,4 +132,12 @@ void Cube::Draw() const
 
 	vao->Disable();
 	texture->Disable();
+}
+
+void Cube::SetFaceNormal(QuadFace& face, Vector3f normal)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		face.vertices[i].normal = normal;
+	}
 }

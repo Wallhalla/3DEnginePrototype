@@ -16,6 +16,10 @@ public:
 	~SceneInstance();
 
 	void SetLocation(FancyMath::Vector3f inNewLocation);
+	void SetRotation(FancyMath::Matrix4 inNewRotation);
+
+	FancyMath::Vector3f GetLocation() const;
+	FancyMath::Matrix4 GetRotation() const;
 
 
 	void Draw();

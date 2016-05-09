@@ -37,7 +37,8 @@
     <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\Circle2D.cpp" />
     <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\Cube.cpp" />
     <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\StaticSprite2D.cpp" />
-    <ClCompile Include="Source\Rendering\SceneObjects\SceneInstannce.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\Lights\Lights.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\SceneInstance.cpp" />
     <ClCompile Include="Source\Rendering\Textures\Textue2D.cpp" />
     <ClCompile Include="Source\Shader\ShaderProgam.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\Circle2D.h" />
     <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\Cube.h" />
     <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\StaticSprite2D.h" />
+    <ClInclude Include="Source\Rendering\SceneObjects\Lights\Lights.h" />
     <ClInclude Include="Source\Rendering\SceneObjects\SceneInstance.h" />
     <ClInclude Include="Source\Rendering\Textures\Texture2D.h" />
     <ClInclude Include="Source\Shader\ShaderHeader.h" />

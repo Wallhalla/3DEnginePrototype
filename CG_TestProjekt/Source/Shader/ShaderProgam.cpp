@@ -159,11 +159,18 @@ void ShaderProgram::SetUniformMatrix4(GLchar* uniformName, Matrix4 inMatrix) con
 	glUniformMatrix4fv(handle, 1, GL_FALSE, inMatrix.Elements);
 }
 
-void ShaderProgram::SetUniformSampler2D(GLchar* uniformName, Texture2D* texture) const
+void ShaderProgram::SetUniformVector3(GLchar* uniformName, FancyMath::Vector3f inVector) const
 {
 	GLint handle = GetUniformLocation(uniformName);
 
-	
+	glUniform3f(handle, inVector.X, inVector.Y, inVector.Z);
+}
+
+void ShaderProgram::SetUniformVector4(GLchar* uniformName, FancyMath::Vector4f inVector) const
+{
+	GLint handle = GetUniformLocation(uniformName);
+
+	glUniform4f(handle, inVector.X, inVector.Y, inVector.Z, inVector.W);
 }
 
 GLint ShaderProgram::GetUniformLocation(GLchar* uniformName) const

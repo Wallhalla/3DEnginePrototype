@@ -5,15 +5,25 @@ in DATA
 	vec3 position;
 	vec4 color;
 	vec2 tex;
+	vec3 normal;
 
 } fs_in;
 
 uniform sampler2D Texture;
-uniform vec4 ambientLight = vec4(1);
+
+uniform vec3 ambientLight = vec3(1);
+uniform vec3 sunLightDirection = vec3(1);
+uniform vec3 sunLightColor = vec3(1);
+
 
 out vec4 FragColor;
 
 void main()
 {
-	gl_FragColor = vec4(1) * texture(Texture, fs_in.tex);
+	// Compute Diffuse Lighting
+	float diffuseLightFactor = max(0.0, dot(fs_in.normal, sunLightDirection));
+
+	vec3 diffuseLightComponent = sunLightColor * diffuseLightFactor; 
+	//texture(Texture, fs_in.tex)
+	gl_FragColor = vec4(ambientLight + diffuseLightComponent, 1) * fs_in.color;
 }

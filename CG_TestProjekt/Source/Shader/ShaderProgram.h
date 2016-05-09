@@ -55,7 +55,9 @@ public:
 	void Disable() const;
 
 	void SetUniformMatrix4(GLchar* uniformName, FancyMath::Matrix4 inMatrix) const;
-	void SetUniformSampler2D(GLchar* uniformName, Texture2D* texture) const;
+	void SetUniformVector3(GLchar* uniformName, FancyMath::Vector3f inVector) const;
+	void SetUniformVector4(GLchar* uniformName, FancyMath::Vector4f inVector) const;
+
 private:
 	GLint GetUniformLocation(GLchar* uniformName) const;
 
