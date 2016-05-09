@@ -16,7 +16,7 @@ public:
 	VertexArray();
 	~VertexArray();
 
-	void ConnectBufferToShaderAttribute(Buffer* buffer, EShaderAttributes shaderLocation);
+	void ConnectBufferToShaderAttribute(Buffer* buffer, GLuint componentCount, EShaderAttributes shaderLocation, GLsizei sizeOfDatatype = 0, GLvoid* attributeOffset = 0 );
 
 	void Enable();
 	void Disable();

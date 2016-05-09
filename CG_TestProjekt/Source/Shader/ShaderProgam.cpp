@@ -6,11 +6,12 @@
 using namespace FancyMath;
 
 #include <iostream>
+#include <string>
 #include <vector>
 
-ShaderProgram::ShaderProgram(const char* vertexShaderFilePath, const char* fragmentShaderFilePath)
+ShaderProgram::ShaderProgram(const char* shaderFileName)
 {
-	Init(vertexShaderFilePath, fragmentShaderFilePath);
+	Init(shaderFileName);
 
 	for (unsigned short i = 0; i < EShaderAttributes::MAX_ATTRIBUTES; i++)
 	{
@@ -23,10 +24,12 @@ ShaderProgram::~ShaderProgram()
 	glDeleteProgram(shaderProgramID);
 }
 
-void ShaderProgram::Init(const char* vertexShaderFilePath, const char* fragmentShaderFilePath)
+void ShaderProgram::Init(const char* shaderFileName)
 {
 	GLuint vertexShaderID = 0;
-	
+	std::string vs = std::string(shaderFileName).append(".vertexshader");
+	const char* vertexShaderFilePath = vs.c_str();
+
 	if (CreateShader(GL_VERTEX_SHADER, vertexShaderFilePath, vertexShaderID) != GL_NO_ERROR)
 	{
 		std::cout << "Could not compile VertexShader - abort!" << std::endl;
@@ -34,6 +37,9 @@ void ShaderProgram::Init(const char* vertexShaderFilePath, const char* fragmentS
 	}
 
 	GLuint fragmentShaderID = 0;
+
+	std::string fs = std::string(shaderFileName).append(".fragmentshader");
+	const char* fragmentShaderFilePath = fs.c_str();
 
 	if (CreateShader(GL_FRAGMENT_SHADER, fragmentShaderFilePath, fragmentShaderID) != GL_NO_ERROR)
 	{
@@ -136,30 +142,39 @@ bool ShaderProgram::CheckProgramAnyError()
 	return false;
 }
 
-void ShaderProgram::Enable()
+void ShaderProgram::Enable() const
 {
 	glUseProgram(shaderProgramID);	
 }
 
-void ShaderProgram::Disable()
+void ShaderProgram::Disable() const
 {
 	glUseProgram(0);
 }
 
-void ShaderProgram::SetUniformMatrix4(GLchar* uniformName, Matrix4 inMatrix)
+void ShaderProgram::SetUniformMatrix4(GLchar* uniformName, Matrix4 inMatrix) const
 {
 	GLint handle = GetUniformLocation(uniformName);
+
+	glUniformMatrix4fv(handle, 1, GL_FALSE, inMatrix.Elements);
+}
+
+void ShaderProgram::SetUniformSampler2D(GLchar* uniformName, Texture2D* texture) const
+{
+	GLint handle = GetUniformLocation(uniformName);
+
+	
+}
+
+GLint ShaderProgram::GetUniformLocation(GLchar* uniformName) const
+{
+	GLint handle = glGetUniformLocation(shaderProgramID, uniformName);
 
 	if (handle < 0)
 	{
 		std::cout << "Couldnt find uniform in Shader: " << uniformName << std::endl;
 	}
 
-	glUniformMatrix4fv(handle, 1, GL_FALSE, inMatrix.Elements);
-}
-
-GLint ShaderProgram::GetUniformLocation(GLchar* uniformName)
-{
-	return glGetUniformLocation(shaderProgramID, uniformName);
+	return handle;
 }
 

@@ -2,10 +2,8 @@
 using namespace CG;
 
 #include "Shader/ShaderProgram.h"
-#include "Rendering/DefaultRenderables/StaticSprite2D.h"
 
-#include "Rendering/DefaultRenderables/Circle2D.h"
-#include "Rendering/DefaultRenderables/Cube.h"
+#include "Rendering/SceneObjects/SceneInstance.h"
 
 #include "Camera/Camera.h"
 
@@ -26,23 +24,17 @@ int main()
 	Camera camera = Camera(Vector3f(0, 0, 5), Vector3f(0, 0, 0), Vector3f(0, 1, 0));
 
 	ShaderProgram shader = ShaderProgram(
-		"Source/Shader/ShaderFiles/BasicShader.vertexShader",
-		"Source/Shader/ShaderFiles/BasicShader.fragmentShader");
+		"Source/Shader/ShaderFiles/BasicShader");
 	shader.Enable();	
 				
-	StaticSprite2D sprite = StaticSprite2D(Vector3f(0,0,0), Vector2f(1, 1));
-	Matrix4 spriteModel = Translate(Vector3f(-4, -4, 3));
-
-	Circle2D circle = Circle2D(2, Vector3f(), 50);	
-		
 	shader.SetUniformMatrix4("projection_matrix", perspective);
-	//shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
+	//shader->Disable();
 	
-	Matrix4 cubeModel = Translate(Vector3f(0, 0, 0)) * Scale(Vector3f(3, 3, 3));
-	shader.SetUniformMatrix4("model_matrix", cubeModel);
+	SceneInstance* cubeMesh = new SceneInstance(&shader, std::string("Cube"));
 
-	Cube cube;
+	cubeMesh->SetLocation(Vector3f(0, 0, -10));
 
+	glEnable(GL_DEPTH_TEST);
 	
 	float i = 0;
 	bool start = true;
@@ -67,17 +59,7 @@ int main()
 
 		window.Clear();	
 
-		shader.SetUniformMatrix4("view_matrix", camera.GetViewMatrix());
-
-		//Matrix4 modelMatrix = Rotate(i, Vector3f(0, 0, 1)) * Translate(Vector3f(5, 5, -1.5f));
-		/*Matrix4 modelMatrix = Translate(Vector3f(0, 0, -3.5f)) * Rotate(i,Vector3f(0,1,0));
-		shader.SetUniformMatrix4("model_matrix", modelMatrix);
-		circle.Draw();
-
-		shader.SetUniformMatrix4("model_matrix", spriteModel);
-		sprite.Draw();*/
-		
-		cube.Draw();
+		cubeMesh->Draw();
 
 		window.Update();
 	}

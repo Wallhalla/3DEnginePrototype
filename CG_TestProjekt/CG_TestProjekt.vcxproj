@@ -33,9 +33,12 @@
     <ClCompile Include="Source\Callbacks\WindowCallbacks.cpp" />
     <ClCompile Include="Source\Camera\Camera.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Rendering\DefaultRenderables\Circle2D.cpp" />
-    <ClCompile Include="Source\Rendering\DefaultRenderables\Cube.cpp" />
-    <ClCompile Include="Source\Rendering\DefaultRenderables\StaticSprite2D.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\Asset.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\Circle2D.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\Cube.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\StaticSprite2D.cpp" />
+    <ClCompile Include="Source\Rendering\SceneObjects\SceneInstannce.cpp" />
+    <ClCompile Include="Source\Rendering\Textures\Textue2D.cpp" />
     <ClCompile Include="Source\Shader\ShaderProgam.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
   </ItemGroup>
@@ -46,10 +49,13 @@
     <ClInclude Include="Source\Buffer\VertexArray.h" />
     <ClInclude Include="Source\Callbacks\WindowCallbacks.h" />
     <ClInclude Include="Source\Camera\Camera.h" />
-    <ClInclude Include="Source\Rendering\DefaultRenderables\Circle2D.h" />
-    <ClInclude Include="Source\Rendering\DefaultRenderables\Cube.h" />
-    <ClInclude Include="Source\Rendering\DefaultRenderables\StaticSprite2D.h" />
     <ClInclude Include="Source\Rendering\Helpers\Colors.h" />
+    <ClInclude Include="Source\Rendering\SceneObjects\Asset.h" />
+    <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\Circle2D.h" />
+    <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\Cube.h" />
+    <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\StaticSprite2D.h" />
+    <ClInclude Include="Source\Rendering\SceneObjects\SceneInstance.h" />
+    <ClInclude Include="Source\Rendering\Textures\Texture2D.h" />
     <ClInclude Include="Source\Shader\ShaderHeader.h" />
     <ClInclude Include="Source\Shader\ShaderProgram.h" />
     <ClInclude Include="Source\Window\Window.h" />
@@ -178,12 +184,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\ThirdParty\GLEW\include;$(ProjectDir)\ThirdParty\GLFW\include;$(ProjectDir)\ThirdParty\FancyLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)ThirdParty\GLEW\include;$(ProjectDir)ThirdParty\GLFW\include;$(ProjectDir)ThirdParty\FancyLib\include;$(ProjectDir)ThirdParty\Simple OpenGL Image Library\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;FancyLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\GLEW\lib\Release\Win32;$(ProjectDir)ThirdParty\GLFW\lib-vc2013;$(ProjectDir)ThirdParty\FancyLib\vc13\lib\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;FancyLib.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\GLEW\lib\Release\Win32;$(ProjectDir)ThirdParty\GLFW\lib-vc2013;$(ProjectDir)ThirdParty\FancyLib\vc13\lib\$(Configuration)\$(Platform);$(ProjectDir)ThirdParty\Simple OpenGL Image Library\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

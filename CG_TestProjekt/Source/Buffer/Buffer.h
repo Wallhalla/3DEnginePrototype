@@ -25,7 +25,6 @@ public:
 	Buffer(
 		void* inBufferData, 
 		GLsizeiptr inBufferElementsSize,
-		GLushort inBufferComponentElementsCount,
 		GLenum inBufferType = GL_ARRAY_BUFFER, 
 		GLenum inMemoryMode = GL_STATIC_DRAW);
 
@@ -34,7 +33,5 @@ public:
 	/* Enable this Buffer and Type to the current used on the GPU */
 	void Enable();
 	/* Disable this Buffer to free the type on GPU */
-	void Disable();
-	/* Returns the number of elements, which defines one Component inside the buffer */
-	GLushort GetComponentSize() const;
+	void Disable();	
 };

@@ -3,6 +3,8 @@
 #include "GL/glew.h"
 #include "FancyLib/FancyMath.h"
 
+#include "../Rendering/Textures/Texture2D.h"
+
 class ShaderProgram
 {
 	/* =================================
@@ -17,11 +19,11 @@ private:
 	 * =================================
 	 */
 public:
-	ShaderProgram(const char* vertexShaderFilePath, const char* fragmentShaderFilePath);
+	ShaderProgram(const char* shaderFileName);
 	~ShaderProgram();
 	
 private:
-	void Init(const char* vertexShaderFilePath, const char* fragmentShaderFilePath);
+	void Init(const char* shaderFileName);
 
 	/** 
 	 * Creates a shader by the given type and filepath
@@ -49,12 +51,12 @@ private:
 	* =================================
 	*/
 public:
-	void Enable();
-	void Disable();
+	void Enable() const;
+	void Disable() const;
 
-	void SetUniformMatrix4(GLchar* uniformName, FancyMath::Matrix4 inMatrix);
-
+	void SetUniformMatrix4(GLchar* uniformName, FancyMath::Matrix4 inMatrix) const;
+	void SetUniformSampler2D(GLchar* uniformName, Texture2D* texture) const;
 private:
-	GLint GetUniformLocation(GLchar* uniformName);
+	GLint GetUniformLocation(GLchar* uniformName) const;
 
 };

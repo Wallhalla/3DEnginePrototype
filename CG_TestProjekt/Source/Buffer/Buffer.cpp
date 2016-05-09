@@ -2,11 +2,10 @@
 
 Buffer::Buffer(
 	void* inBufferData,
-	GLsizeiptr inBufferElementsSize,
-	GLushort inBufferComponentElementsCount,
+	GLsizeiptr inBufferElementsSize,	
 	GLenum inBufferType,
 	GLenum inMemoryMode)
-	: bufferType(inBufferType), componentSize(inBufferComponentElementsCount)
+	: bufferType(inBufferType)
 {
 	glGenBuffers(1, &vboID);
 	glBindBuffer(bufferType, vboID);
@@ -30,7 +29,3 @@ void Buffer::Disable()
 	glBindBuffer(bufferType, 0);
 }
 
-GLushort Buffer::GetComponentSize() const
-{
-	return componentSize;
-}

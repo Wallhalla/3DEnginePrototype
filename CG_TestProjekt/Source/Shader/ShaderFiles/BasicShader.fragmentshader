@@ -4,10 +4,16 @@ in DATA
 {
 	vec3 position;
 	vec4 color;
+	vec2 tex;
 
 } fs_in;
 
+uniform sampler2D Texture;
+uniform vec4 ambientLight = vec4(1);
+
+out vec4 FragColor;
+
 void main()
 {
-    gl_FragColor = fs_in.color;
+	gl_FragColor = vec4(1) * texture(Texture, fs_in.tex);
 }

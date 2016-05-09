@@ -24,7 +24,8 @@ StaticSprite2D::StaticSprite2D(Vector3f position, Vector2f(size))
 	ibo->Enable();
 
 	vao->ConnectBufferToShaderAttribute(
-		new Buffer(vertices, sizeof(vertices), 3),
+		new Buffer(vertices, sizeof(vertices)),
+		3,
 		EShaderAttributes::POSITION);
 
 	ibo->Disable();

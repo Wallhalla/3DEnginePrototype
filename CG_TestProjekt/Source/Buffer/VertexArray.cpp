@@ -10,7 +10,7 @@ VertexArray::~VertexArray()
 	glDeleteVertexArrays(1, &vaoID);
 }
 
-void VertexArray::ConnectBufferToShaderAttribute(Buffer* buffer, EShaderAttributes shaderLocation)
+void VertexArray::ConnectBufferToShaderAttribute(Buffer* buffer, GLuint componentCount, EShaderAttributes shaderLocation, GLsizei sizeOfDatatype, GLvoid* attributeOffset)
 {
 	Enable();
 
@@ -20,11 +20,11 @@ void VertexArray::ConnectBufferToShaderAttribute(Buffer* buffer, EShaderAttribut
 	
 	glVertexAttribPointer(
 		shaderLocation,								// shader location
-		buffer->GetComponentSize(),                 // size
+		componentCount,						        // size
 		GL_FLOAT,									// type
 		GL_FALSE,									// normalized?
-		0,											// stride
-		0											// array buffer offset
+		sizeOfDatatype,								// stride
+		attributeOffset								// array buffer offset
 		);
 
 	glDisableVertexAttribArray(shaderLocation);

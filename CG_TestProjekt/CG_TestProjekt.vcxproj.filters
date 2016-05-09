@@ -25,11 +25,17 @@
     <Filter Include="Source\Shader\ShaderFiles">
       <UniqueIdentifier>{122f05bb-f98a-4622-9798-0def6f797fb8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Rendering\DefaultRenderables">
-      <UniqueIdentifier>{807fdc61-74d1-4bc5-bfd0-df76b0f65f1e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Rendering\Helpers">
       <UniqueIdentifier>{429ef0a7-a785-4b6d-a424-04c56efe8182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Rendering\SceneObjects">
+      <UniqueIdentifier>{ed53a7da-de26-4692-aa58-63c9ac14dbf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Rendering\SceneObjects\DefaultAssets">
+      <UniqueIdentifier>{807fdc61-74d1-4bc5-bfd0-df76b0f65f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Rendering\Textures">
+      <UniqueIdentifier>{6946b04a-8393-49ce-bd1c-fabe48f55775}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,14 +63,23 @@
     <ClCompile Include="Source\Camera\Camera.cpp">
       <Filter>Source\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Rendering\DefaultRenderables\Circle2D.cpp">
-      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\Circle2D.cpp">
+      <Filter>Source\Rendering\SceneObjects\DefaultAssets</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Rendering\DefaultRenderables\Cube.cpp">
-      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\Cube.cpp">
+      <Filter>Source\Rendering\SceneObjects\DefaultAssets</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Rendering\DefaultRenderables\StaticSprite2D.cpp">
-      <Filter>Source\Rendering\DefaultRenderables</Filter>
+    <ClCompile Include="Source\Rendering\SceneObjects\DefaultAssets\StaticSprite2D.cpp">
+      <Filter>Source\Rendering\SceneObjects\DefaultAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\SceneObjects\Asset.cpp">
+      <Filter>Source\Rendering\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\SceneObjects\SceneInstannce.cpp">
+      <Filter>Source\Rendering\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\Textures\Textue2D.cpp">
+      <Filter>Source\Rendering\Textures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,17 +110,26 @@
     <ClInclude Include="Source\Camera\Camera.h">
       <Filter>Source\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Rendering\DefaultRenderables\Circle2D.h">
-      <Filter>Source\Rendering\DefaultRenderables</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\DefaultRenderables\Cube.h">
-      <Filter>Source\Rendering\DefaultRenderables</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\DefaultRenderables\StaticSprite2D.h">
-      <Filter>Source\Rendering\DefaultRenderables</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Rendering\Helpers\Colors.h">
       <Filter>Source\Rendering\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\Circle2D.h">
+      <Filter>Source\Rendering\SceneObjects\DefaultAssets</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\Cube.h">
+      <Filter>Source\Rendering\SceneObjects\DefaultAssets</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SceneObjects\DefaultAssets\StaticSprite2D.h">
+      <Filter>Source\Rendering\SceneObjects\DefaultAssets</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SceneObjects\Asset.h">
+      <Filter>Source\Rendering\SceneObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\SceneObjects\SceneInstance.h">
+      <Filter>Source\Rendering\SceneObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Textures\Texture2D.h">
+      <Filter>Source\Rendering\Textures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

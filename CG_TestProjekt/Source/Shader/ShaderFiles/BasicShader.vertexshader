@@ -2,11 +2,13 @@
 	
 layout(location = 0) in vec3 vertexPosition;
 layout(location = 1) in vec4 vertexColor;
+layout(location = 2) in vec2 textureCoord;
 
 out DATA
 {
 	vec3 position;
 	vec4 color;
+	vec2 tex;
 
 } vs_out;
 
@@ -18,5 +20,6 @@ void main()
 {
 	vs_out.position = vertexPosition;
 	vs_out.color = vertexColor;
+	vs_out.tex = textureCoord;
 	gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertexPosition,1);
 }
